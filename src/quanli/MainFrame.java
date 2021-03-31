@@ -9,10 +9,20 @@ import java.awt.Color;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import KetNoiSQL.KetNoi;
+import java.security.interfaces.RSAKey;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -152,14 +162,14 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
-        jTextField7 = new javax.swing.JTextField();
+        jTextField_SDTTra = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        jTextField_HoTenTra = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        jTextField_LopSVTra = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
+        jButton_MaSVmuon = new javax.swing.JButton();
+        jTextField_MaSVTra = new javax.swing.JTextField();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
@@ -167,18 +177,20 @@ public class MainFrame extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        jTextField_MaSVMuon = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        jTextField_MaMuon = new javax.swing.JTextField();
+        jButton_TimMaMuon = new javax.swing.JButton();
+        jButton_MoDanhSachMuon = new javax.swing.JButton();
         jLabel42 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jPanel_themtb = new javax.swing.JPanel();
 
+        jDialog_ChonDSDangKy.setAlwaysOnTop(true);
         jDialog_ChonDSDangKy.setMinimumSize(new java.awt.Dimension(465, 276));
+        jDialog_ChonDSDangKy.setModal(true);
 
         jPanel12.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1023,9 +1035,17 @@ public class MainFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "STT", "Mã TB", "Mô tả", "Chọn"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel30.setText("TRẢ THIẾT BỊ");
@@ -1057,8 +1077,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel35.setText("Lớp:");
 
-        jButton11.setText("TÌM");
-        jButton11.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton_MaSVmuon.setText("TÌM");
+        jButton_MaSVmuon.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton_MaSVmuon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_MaSVmuonActionPerformed(evt);
+            }
+        });
 
         jLabel36.setText("Mã sinh viên:");
 
@@ -1084,10 +1109,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel41.setText("Mã mượn:");
 
-        jButton14.setText("TÌM");
-        jButton14.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton_TimMaMuon.setText("TÌM");
+        jButton_TimMaMuon.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton_TimMaMuon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_TimMaMuonActionPerformed(evt);
+            }
+        });
 
-        jButton15.setText("MỞ DANH SÁCH MƯỢN");
+        jButton_MoDanhSachMuon.setText("MỞ DANH SÁCH MƯỢN");
 
         jLabel42.setText("*Nhập mã sinh viên hoặc mã mượn để tìm danh sách thiết bị mượn");
         jLabel42.setFont(new java.awt.Font("sansserif", 2, 12)); // NOI18N
@@ -1131,8 +1161,8 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel_tratbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField10)
-                                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField_MaSVTra)
+                                    .addComponent(jTextField_HoTenTra, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(24, 24, 24)
@@ -1141,8 +1171,8 @@ public class MainFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel_tratbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField7)
-                                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextField_SDTTra)
+                                    .addComponent(jTextField_LopSVTra, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel_tratbLayout.createSequentialGroup()
                                 .addComponent(jLabel37)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1156,23 +1186,23 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(74, 74, 74)
                         .addGroup(jPanel_tratbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel_tratbLayout.createSequentialGroup()
-                                .addComponent(jButton15)
+                                .addComponent(jButton_MoDanhSachMuon)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel42))
                             .addGroup(jPanel_tratbLayout.createSequentialGroup()
                                 .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField_MaSVMuon, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton_MaSVmuon, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel41)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextField_MaMuon, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton_TimMaMuon, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel_tratbLayout.setVerticalGroup(
@@ -1189,15 +1219,15 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_tratbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11)
+                    .addComponent(jTextField_MaSVMuon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_MaSVmuon)
                     .addComponent(jLabel40)
                     .addComponent(jLabel41)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton14))
+                    .addComponent(jTextField_MaMuon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_TimMaMuon))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_tratbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton15)
+                    .addComponent(jButton_MoDanhSachMuon)
                     .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(jPanel_tratbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1208,16 +1238,16 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(jPanel_tratbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_MaSVTra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel35)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_LopSVTra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel_tratbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel34)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_HoTenTra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel33)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField_SDTTra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_tratbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel32)
@@ -1466,6 +1496,35 @@ public class MainFrame extends javax.swing.JFrame {
         
         
     }
+    //lay thoi gian muon
+    private void layThoiGianMuonTra(String mamuon){
+        String sql = "select NGAYGIOMUON, NGAYGIODUDINHTRA from muontb where MAMUON = ?";
+        String tgmuon = null, tgtra = null;
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, mamuon);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                tgmuon = rs.getString("NGAYGIOMUON");
+                tgtra = rs.getString("NGAYGIODUDINHTRA");
+                
+            }
+            
+            
+        } catch (Exception e) {
+        }
+        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        DateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+        Date ngaymuon;
+        LocalDate ngaytra;
+        
+        datePicker_NgayMuon.setDateToToday();
+        datePicker_NgayTra.setDate(LocalDate.MIN);
+        timePicker_GioMuon.setTime(LocalTime.MIN);
+        timePicker_GioTra.setTime(LocalTime.MIN);
+    }
     
     // reset table 
     private void resetTableTBMUON(){
@@ -1615,6 +1674,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
         System.out.println(sdmuon.get(0));
         danhSachTBDangky((String) sdmuon.get(0));
+        layThoiGianMuonTra((String) sdmuon.get(0));
         jDialog_ChonDSDangKy.setVisible(false);
         
     }//GEN-LAST:event_jButton_ChonDSDKActionPerformed
@@ -1632,6 +1692,72 @@ public class MainFrame extends javax.swing.JFrame {
         timePicker_GioTra.setText("");
         jButton_DSDangKy.setEnabled(false);
     }//GEN-LAST:event_jButton_DatLaiActionPerformed
+
+    private void jButton_MaSVmuonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_MaSVmuonActionPerformed
+        // tim sv tra tb:
+        String masv = jTextField_MaSVMuon.getText();
+        
+        if("".equals(masv)){
+            
+    
+            JOptionPane.showMessageDialog(rootPane, "Nhập mã số sinh viên");
+            
+            return;
+        }
+        System.out.println(masv);
+        String sql = "select * from muontb where MASV = ?";
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, masv);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                jDialog_ChonDSDangKy.setLocationRelativeTo(null);
+                jDialog_ChonDSDangKy.setVisible(true);
+                
+            }
+            else {
+
+                
+                JOptionPane.showMessageDialog(rootPane, "Không tìm thấy thông tin mượn");
+            }
+        } catch (Exception e) {
+            
+        }
+    }//GEN-LAST:event_jButton_MaSVmuonActionPerformed
+
+    private void jButton_TimMaMuonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TimMaMuonActionPerformed
+        // tra danh sach theo ma muon:
+        String mamuon = jTextField_MaMuon.getText();
+        
+        if("".equals(mamuon)){
+            
+    
+            JOptionPane.showMessageDialog(rootPane, "Nhập mã mượn");
+            
+            return;
+        }
+        System.out.println(mamuon);
+        String sql = "select * from muontb where MAMUON = ? and TRANGTHAIMUON = N'Mượn'";
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, mamuon);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                jTextField_MaSVMuon.setText(rs.getString("MASV"));
+                
+                
+            }
+            else {
+
+                
+                JOptionPane.showMessageDialog(rootPane, "Không tìm thấy thông tin mượn");
+            }
+        } catch (Exception e) {
+            
+        }
+        
+        
+    }//GEN-LAST:event_jButton_TimMaMuonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1673,18 +1799,18 @@ public class MainFrame extends javax.swing.JFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker_NgayMuon;
     private com.github.lgooddatepicker.components.DatePicker datePicker_NgayTra;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton_ChonDSDK;
     private javax.swing.JButton jButton_ChonTB;
     private javax.swing.JButton jButton_DSDangKy;
     private javax.swing.JButton jButton_DatLai;
+    private javax.swing.JButton jButton_MaSVmuon;
+    private javax.swing.JButton jButton_MoDanhSachMuon;
     private javax.swing.JButton jButton_Sua;
     private javax.swing.JButton jButton_TimKiem;
+    private javax.swing.JButton jButton_TimMaMuon;
     private javax.swing.JButton jButton_TimSV;
     private javax.swing.JButton jButton_XNmuon;
     private javax.swing.JButton jButton_Xoa;
@@ -1782,16 +1908,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTable_ChonDSDK;
     private javax.swing.JTable jTable_DSThBiMuon;
     private javax.swing.JTable jTable_TBCoSan;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextField_HoTen;
+    private javax.swing.JTextField jTextField_HoTenTra;
     private javax.swing.JTextField jTextField_Lop;
+    private javax.swing.JTextField jTextField_LopSVTra;
+    private javax.swing.JTextField jTextField_MaMuon;
     private javax.swing.JTextField jTextField_MaSV;
+    private javax.swing.JTextField jTextField_MaSVMuon;
+    private javax.swing.JTextField jTextField_MaSVTra;
     private javax.swing.JTextField jTextField_SDT;
+    private javax.swing.JTextField jTextField_SDTTra;
     private javax.swing.JTextField jTextField_TimKiem;
     private com.github.lgooddatepicker.components.TimePicker timePicker_GioMuon;
     private com.github.lgooddatepicker.components.TimePicker timePicker_GioTra;
