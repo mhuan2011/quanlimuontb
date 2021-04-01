@@ -12,6 +12,17 @@ import KetNoiSQL.KetNoi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+<<<<<<< Updated upstream
+=======
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Locale;
+>>>>>>> Stashed changes
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -39,6 +50,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel_muontb_btn.setBackground(new Color(153,153,153));
         jPanel_tratb_btn.setBackground(new Color(153,153,153));
         jPanel_themtb_btn.setBackground(new Color(153,153,153));
+        datePicker_NgayTra.setLocale(Locale.forLanguageTag("VI"));
+        datePicker_NgayMuon.setLocale(Locale.forLanguageTag("VI"));
         clock();
         docDanhSach();
     }
@@ -60,6 +73,11 @@ public class MainFrame extends javax.swing.JFrame {
         jButton_ChonDSDK = new javax.swing.JButton();
         jLabel45 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
+        jDialog_DanhSachMuon = new javax.swing.JDialog();
+        jPanel14 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -271,6 +289,55 @@ public class MainFrame extends javax.swing.JFrame {
         jDialog_ChonDSDangKyLayout.setVerticalGroup(
             jDialog_ChonDSDangKyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel14.setBackground(new java.awt.Color(255, 255, 255));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable2);
+
+        jButton1.setText("jButton1");
+
+        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
+        jPanel14.setLayout(jPanel14Layout);
+        jPanel14Layout.setHorizontalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        jPanel14Layout.setVerticalGroup(
+            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel14Layout.createSequentialGroup()
+                .addContainerGap(96, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addGap(41, 41, 41))
+        );
+
+        javax.swing.GroupLayout jDialog_DanhSachMuonLayout = new javax.swing.GroupLayout(jDialog_DanhSachMuon.getContentPane());
+        jDialog_DanhSachMuon.getContentPane().setLayout(jDialog_DanhSachMuonLayout);
+        jDialog_DanhSachMuonLayout.setHorizontalGroup(
+            jDialog_DanhSachMuonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialog_DanhSachMuonLayout.setVerticalGroup(
+            jDialog_DanhSachMuonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -853,6 +920,11 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton_gioHT.setText("Thời gian hiện tại");
+        jButton_gioHT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_gioHTActionPerformed(evt);
+            }
+        });
 
         jButton_XNmuon.setText("XÁC NHẬN");
         jButton_XNmuon.setBackground(new java.awt.Color(0, 102, 0));
@@ -1466,6 +1538,43 @@ public class MainFrame extends javax.swing.JFrame {
         
         
     }
+<<<<<<< Updated upstream
+=======
+    //lay thoi gian muon
+    private void layThoiGianMuonTra(String mamuon){
+        String sql = "select NGAYGIOMUON, NGAYGIODUDINHTRA from muontb where MAMUON = ?";
+        String tgmuon = null, tgtra = null;
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, mamuon);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                tgmuon = rs.getString("NGAYGIOMUON");
+                tgtra = rs.getString("NGAYGIODUDINHTRA");
+                
+            }
+            
+            
+        } catch (Exception e) {
+        }
+        
+        DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-d");
+        DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+        LocalDate ngaymuon, ngaytra;
+        LocalTime giomuon, giotra;
+        ngaymuon = LocalDate.parse(tgmuon.substring(0,10), dateFormat);
+        ngaytra = LocalDate.parse(tgtra.substring(0,10), dateFormat);
+        
+        giomuon = LocalTime.parse(tgmuon.substring(11,19), timeFormat);
+        giotra = LocalTime.parse(tgtra.substring(11,19), timeFormat);
+        datePicker_NgayMuon.setDate(ngaymuon);
+        datePicker_NgayTra.setDate(ngaytra);
+        timePicker_GioMuon.setTime(giomuon);
+        timePicker_GioTra.setTime(giotra);
+    }
+>>>>>>> Stashed changes
     
     // reset table 
     private void resetTableTBMUON(){
@@ -1633,6 +1742,81 @@ public class MainFrame extends javax.swing.JFrame {
         jButton_DSDangKy.setEnabled(false);
     }//GEN-LAST:event_jButton_DatLaiActionPerformed
 
+<<<<<<< Updated upstream
+=======
+    private void jButton_MaSVmuonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_MaSVmuonActionPerformed
+        // tim sv tra tb:
+        String masv = jTextField_MaSVMuon.getText();
+        
+        if("".equals(masv)){
+            
+    
+            JOptionPane.showMessageDialog(rootPane, "Nhập mã số sinh viên");
+            
+            return;
+        }
+        System.out.println(masv);
+        String sql = "select * from muontb where MASV = ?";
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, masv);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                jDialog_ChonDSDangKy.setLocationRelativeTo(null);
+                jDialog_ChonDSDangKy.setVisible(true);
+                
+            }
+            else {
+
+                
+                JOptionPane.showMessageDialog(rootPane, "Không tìm thấy thông tin mượn");
+            }
+        } catch (Exception e) {
+            
+        }
+    }//GEN-LAST:event_jButton_MaSVmuonActionPerformed
+
+    private void jButton_TimMaMuonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TimMaMuonActionPerformed
+        // tra danh sach theo ma muon:
+        String mamuon = jTextField_MaMuon.getText();
+        
+        if("".equals(mamuon)){
+            
+    
+            JOptionPane.showMessageDialog(rootPane, "Nhập mã mượn");
+            
+            return;
+        }
+        System.out.println(mamuon);
+        String sql = "select * from muontb where MAMUON = ? and TRANGTHAIMUON = N'Mượn'";
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, mamuon);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                jTextField_MaSVMuon.setText(rs.getString("MASV"));
+                
+                
+            }
+            else {
+
+                
+                JOptionPane.showMessageDialog(rootPane, "Không tìm thấy thông tin mượn");
+            }
+        } catch (Exception e) {
+            
+        }
+        
+        
+    }//GEN-LAST:event_jButton_TimMaMuonActionPerformed
+
+    private void jButton_gioHTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_gioHTActionPerformed
+        // TODO add your handling code here:
+        datePicker_NgayMuon.setDateToToday();
+        timePicker_GioMuon.setTimeToNow();
+    }//GEN-LAST:event_jButton_gioHTActionPerformed
+
+>>>>>>> Stashed changes
     /**
      * @param args the command line arguments
      */
@@ -1672,6 +1856,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker_NgayMuon;
     private com.github.lgooddatepicker.components.DatePicker datePicker_NgayTra;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -1692,6 +1877,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox_SapXep;
     private javax.swing.JComboBox<String> jComboBox_TrangThai;
     private javax.swing.JDialog jDialog_ChonDSDangKy;
+    private javax.swing.JDialog jDialog_DanhSachMuon;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1750,6 +1936,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1771,6 +1958,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1779,6 +1967,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable_ChonDSDK;
     private javax.swing.JTable jTable_DSThBiMuon;
     private javax.swing.JTable jTable_TBCoSan;
