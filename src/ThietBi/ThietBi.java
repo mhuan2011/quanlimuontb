@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dangky;
+package ThietBi;
 
 import java.util.Date;
 
@@ -12,6 +12,6 @@ import java.util.Date;
  * @author Minh Huan
  */
 public class ThietBi {
-    String matb, tenTB, maLoai, moTa, tinhTrang;
-    boolean check = false;
+    public String matb, tenTB, maLoai = "", moTa = "", tinhTrang= "";
+    public boolean check = false;
 }
