@@ -29,6 +29,7 @@ import java.util.logging.Logger;
 import javax.naming.spi.DirStateFactory;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Minh Huan
@@ -44,13 +45,14 @@ public class MainFrame extends javax.swing.JFrame {
     private String maMuonDK = "";
     ArrayList<ThietBi> dstbmuon = new ArrayList<>();
     ArrayList<ThietBi> dstbtra = new ArrayList<>();
-    
+
     ArrayList<ThietBi> TBmuon = new ArrayList<>();
     ArrayList<ThietBi> TBtra = new ArrayList<>();
-    
+
     private String mamuonTra;
     int sotbMuon = 0;
     Connection ketNoi = (Connection) KetNoi.ConnectSQL();
+
     public MainFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -58,13 +60,14 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel_muontb.setVisible(false);
         jPanel_tratb.setVisible(false);
         jPanel_themtb.setVisible(false);
-        
+
         jPanel_trangchu_btn.setBackground(Color.white);
-        jPanel_muontb_btn.setBackground(new Color(153,153,153));
-        jPanel_tratb_btn.setBackground(new Color(153,153,153));
-        jPanel_themtb_btn.setBackground(new Color(153,153,153));
+        jPanel_muontb_btn.setBackground(new Color(153, 153, 153));
+        jPanel_tratb_btn.setBackground(new Color(153, 153, 153));
+        jPanel_themtb_btn.setBackground(new Color(153, 153, 153));
         datePicker_NgayTra.setLocale(Locale.forLanguageTag("VI"));
         datePicker_NgayMuon.setLocale(Locale.forLanguageTag("VI"));
+        jTextField_NgayGioNhapKho.setEditable(false);
         clock();
         docDanhSach();
     }
@@ -221,7 +224,28 @@ public class MainFrame extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         jButton1_TimMaMuonTBi = new javax.swing.JButton();
         jPanel_themtb = new javax.swing.JPanel();
+        jLabel53 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel54 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel55 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel56 = new javax.swing.JLabel();
+        jTextField_NgayGioNhapKho = new javax.swing.JTextField();
+        jLabel57 = new javax.swing.JLabel();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel58 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jPanel19 = new javax.swing.JPanel();
 
         jDialog_ChonDSDangKy.setMinimumSize(new java.awt.Dimension(465, 276));
         jDialog_ChonDSDangKy.setModal(true);
@@ -1604,25 +1628,187 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel_themtb.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel52.setText("TÍNH NĂNG ĐANG UPDATE");
-        jLabel52.setFont(new java.awt.Font("sansserif", 0, 48)); // NOI18N
-        jLabel52.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel53.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        jLabel53.setForeground(new java.awt.Color(0, 0, 102));
+        jLabel53.setText("THÊM THIẾT BỊ");
+
+        jPanel16.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel16.setForeground(new java.awt.Color(0, 0, 102));
+
+        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
+        jPanel16.setLayout(jPanel16Layout);
+        jPanel16Layout.setHorizontalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+        jPanel16Layout.setVerticalGroup(
+            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 32, Short.MAX_VALUE)
+        );
+
+        jLabel54.setText("Mã thiết bị (*):");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Loại thiết bị ---" }));
+        jComboBox1.setBorder(null);
+
+        jLabel55.setText("Loại thiết bị(*):");
+
+        jLabel56.setText("Ngày nhâp kho");
+
+        jLabel57.setText("Tên thiết bị (*):");
+
+        jLabel58.setText("Mã thiết bị:");
+
+        jLabel52.setText("MIC-");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane7.setViewportView(jTextArea1);
+
+        jLabel59.setText("Mô tả:");
+
+        jLabel60.setFont(new java.awt.Font("sansserif", 2, 12)); // NOI18N
+        jLabel60.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel60.setText("Các trường đánh dấu (*) là bắt buộc phải nhập");
+
+        jLabel61.setFont(new java.awt.Font("sansserif", 2, 12)); // NOI18N
+        jLabel61.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel61.setText("Nhân viên chịu trách nhiệm trong việc thêm thiết bị - Ngày giờ nhập kho tự động lấy giờ hệ thống");
+
+        jButton1.setBackground(new java.awt.Color(0, 102, 51));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("THÊM");
+
+        jButton2.setBackground(new java.awt.Color(204, 0, 51));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("HỦY");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(0, 0, 102));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("ĐẶT LẠI");
+
+        jPanel19.setBackground(new java.awt.Color(0, 0, 102));
+        jPanel19.setForeground(new java.awt.Color(0, 0, 102));
+
+        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
+        jPanel19.setLayout(jPanel19Layout);
+        jPanel19Layout.setHorizontalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 494, Short.MAX_VALUE)
+        );
+        jPanel19Layout.setVerticalGroup(
+            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 38, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel_themtbLayout = new javax.swing.GroupLayout(jPanel_themtb);
         jPanel_themtb.setLayout(jPanel_themtbLayout);
         jPanel_themtbLayout.setHorizontalGroup(
             jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_themtbLayout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
-                .addComponent(jLabel52)
-                .addGap(69, 69, 69))
+            .addGroup(jPanel_themtbLayout.createSequentialGroup()
+                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel_themtbLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_themtbLayout.createSequentialGroup()
+                                .addComponent(jPanel19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel_themtbLayout.createSequentialGroup()
+                                .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel_themtbLayout.createSequentialGroup()
+                        .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_themtbLayout.createSequentialGroup()
+                                .addGap(69, 69, 69)
+                                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel57, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_themtbLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(43, 43, 43)))
+                        .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel_themtbLayout.createSequentialGroup()
+                                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jTextField2)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_themtbLayout.createSequentialGroup()
+                                        .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel58))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextField_NgayGioNhapKho, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(jTextField4)))
+                            .addComponent(jScrollPane7)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel_themtbLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel_themtbLayout.createSequentialGroup()
+                                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel_themtbLayout.createSequentialGroup()
+                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel60, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         jPanel_themtbLayout.setVerticalGroup(
             jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_themtbLayout.createSequentialGroup()
-                .addGap(236, 236, 236)
-                .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_themtbLayout.createSequentialGroup()
+                .addContainerGap(51, Short.MAX_VALUE)
+                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel53))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel55)
+                    .addComponent(jTextField_NgayGioNhapKho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel56))
+                .addGap(13, 13, 13)
+                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel54)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel58)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel52))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel57))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel59))
+                .addGap(60, 60, 60)
+                .addComponent(jLabel60)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel61)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout jPanel_mainLayout = new javax.swing.GroupLayout(jPanel_main);
@@ -1695,9 +1881,10 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     //dong ho 
+
     public void clock() {
-    Thread clock = new Thread() {
-        public void run() {
+        Thread clock = new Thread() {
+            public void run() {
                 try {
                     while (true) {
                         Calendar cal = new GregorianCalendar();
@@ -1715,9 +1902,8 @@ public class MainFrame extends javax.swing.JFrame {
                         int month = cal.get(Calendar.MONTH);
                         int year = cal.get(Calendar.YEAR);
 
-
-                        jLabel_time.setText(dayOfMonth+"/"+month+"/"+year+" "+hour+":"+minute+":"+second);
-
+                        jLabel_time.setText(dayOfMonth + "/" + month + "/" + year + " " + hour + ":" + minute + ":" + second);
+                        jTextField_NgayGioNhapKho.setText(dayOfMonth + "-" + month + "-" + year + " " + hour + ":" + minute + ":" + second);
                         sleep(1000);
                     }
                 } catch (Exception e) {
@@ -1727,13 +1913,13 @@ public class MainFrame extends javax.swing.JFrame {
         };
         clock.start();
     }
-    
+
     //load danh sach tb
-    private void docDanhSach(){
+    private void docDanhSach() {
         DefaultTableModel dtm = (DefaultTableModel) jTable_TBCoSan.getModel();
         dtm.setNumRows(0);
         String sql = "select * from thietbi";
-        
+
         try {
 
             PreparedStatement ps = ketNoi.prepareCall(sql);
@@ -1755,9 +1941,9 @@ public class MainFrame extends javax.swing.JFrame {
                 tinhtrangsd = rs.getString("TINHTRANGSD");
                 demTB(tinhtrangsd);
                 v.add(tinhtrangsd);
-                
+
                 dtm.addRow(v);
-                
+
             }
             rs.close();
             ps.close();
@@ -1767,61 +1953,66 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println("Get data error...");
         }
     }
+
     //dem tb
-    private void demTB(String trangThai){
+    private void demTB(String trangThai) {
         tongTB++;
-        if(trangThai.equals("Có sẵn")){
+        if (trangThai.equals("Có sẵn")) {
             tbCoSan++;
         }
-        if(trangThai.equals("Hỏng")){
+        if (trangThai.equals("Hỏng")) {
             tbHong++;
         }
-        if(trangThai.equals("Đang mượn")){
+        if (trangThai.equals("Đang mượn")) {
             tbDangMuon++;
         }
-        if(trangThai.equals("Bảo trì")){
+        if (trangThai.equals("Bảo trì")) {
             tbBaoTri++;
         }
-        
+
     }
+
     //kiem tra sinh vien da co dk tb chua
     private void kiemTraDK(String masv) {
         String sql = "select * from muontb where TRANGTHAIMUON = N'Đăng ký'";
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 jButton_DSDangKy.setEnabled(true);
-            }
-            else {
+            } else {
                 jButton_DSDangKy.setEnabled(false);
             }
         } catch (Exception e) {
         }
     }
+
     //set so tb
-    private void ghiSoTB(){
-        jLabel_TongSoTB.setText(tongTB+"");
-        jLabel_tbBaoTri.setText(tbBaoTri+"");
-        jLabel_tbHong.setText(tbHong+"");
-        jLabel_tbDangMuon.setText(tbDangMuon+"");
-        jLabel_tbCoSan.setText(tbCoSan+"");
-        
+    private void ghiSoTB() {
+        jLabel_TongSoTB.setText(tongTB + "");
+        jLabel_tbBaoTri.setText(tbBaoTri + "");
+        jLabel_tbHong.setText(tbHong + "");
+        jLabel_tbDangMuon.setText(tbDangMuon + "");
+        jLabel_tbCoSan.setText(tbCoSan + "");
+
     }
+
     //tim ma sinh vien muon
-    private boolean timMaSVmuon(){
+    private boolean timMaSVmuon() {
         boolean kqua = false;
         String masv = jTextField_MaSV.getText();
 
         System.out.println(masv);
-        if(masv=="") return false;
-        
+        if (masv == "") {
+            return false;
+        }
+
         String sql = "select * from sinhvien where MASV = ?";
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, masv);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 String hoten = rs.getString("HOTEN");
                 String lop = rs.getString("LOP");
                 String sdt = rs.getString("SDT");
@@ -1829,23 +2020,22 @@ public class MainFrame extends javax.swing.JFrame {
                 jTextField_HoTen.setText(hoten);
                 jTextField_Lop.setText(lop);
                 jTextField_SDT.setText(sdt);
-                kqua =true;
+                kqua = true;
                 kiemTraDK(masv);
-            }
-            else {
+            } else {
 //                jTextField_HoTen.setText("");
 //                jTextField_Lop.setText("");
 //                jTextField_SDT.setText("");
             }
         } catch (Exception e) {
-            
+
         }
         return kqua;
     }
-    
+
     //load dstb dang ky
-    private void danhSachTBDangky(String mamuon){
-        DefaultTableModel dtm = (DefaultTableModel)  jTable_DSThBiMuon.getModel();
+    private void danhSachTBDangky(String mamuon) {
+        DefaultTableModel dtm = (DefaultTableModel) jTable_DSThBiMuon.getModel();
         dtm.setNumRows(0);
         String sql = "select * from thietbi where MATB in (select MATB from chitietmuon where MAMUON = ?)";
         try {
@@ -1853,10 +2043,10 @@ public class MainFrame extends javax.swing.JFrame {
             ps.setString(1, mamuon);
             ResultSet rs = ps.executeQuery();
             int i = 0;
-            while(rs.next()){
-                
+            while (rs.next()) {
+
                 Vector v = new Vector();
-                v.add(i+"");
+                v.add(i + "");
                 String matb, tentb, mota;
                 matb = rs.getString("MATB");
                 v.add(matb);
@@ -1864,8 +2054,7 @@ public class MainFrame extends javax.swing.JFrame {
                 v.add(tentb);
                 mota = rs.getString("MOTA");
                 v.add(mota);
-                
-                
+
                 dtm.addRow(v);
 //                dtm.setValueAt(false , sods, 0);
                 sods++;
@@ -1874,63 +2063,63 @@ public class MainFrame extends javax.swing.JFrame {
             ps.close();
             rs.close();
             jTable_DSThBiMuon.setModel(dtm);
-            
+
         } catch (Exception e) {
             System.out.println("lỗi load danh sách thiết bị ...402");
         }
-        
-        
+
     }
-    
+
     //lay ma sinh vien muon
-    private void layMaSVMuon(String mamuon){
+    private void layMaSVMuon(String mamuon) {
         String sql = "select MASV from muontb where MAMUON = ?";
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, mamuon);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 jTextField_MaSVMuon.setText(rs.getString("MASV"));
             }
         } catch (Exception e) {
         }
     }
+
     //lay thoi gian muon
-    private void layThoiGianMuonTra(String mamuon){
+    private void layThoiGianMuonTra(String mamuon) {
         String sql = "select NGAYGIOMUON, NGAYGIODUDINHTRA from muontb where MAMUON = ?";
         String tgmuon = null, tgtra = null;
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, mamuon);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 tgmuon = rs.getString("NGAYGIOMUON");
                 tgtra = rs.getString("NGAYGIODUDINHTRA");
-                
+
             }
-            
-            
+
         } catch (Exception e) {
         }
-        
+
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-d");
         DateTimeFormatter timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
 
         LocalDate ngaymuon, ngaytra;
         LocalTime giomuon, giotra;
-        ngaymuon = LocalDate.parse(tgmuon.substring(0,10), dateFormat);
-        ngaytra = LocalDate.parse(tgtra.substring(0,10), dateFormat);
-        
-        giomuon = LocalTime.parse(tgmuon.substring(11,19), timeFormat);
-        giotra = LocalTime.parse(tgtra.substring(11,19), timeFormat);
+        ngaymuon = LocalDate.parse(tgmuon.substring(0, 10), dateFormat);
+        ngaytra = LocalDate.parse(tgtra.substring(0, 10), dateFormat);
+
+        giomuon = LocalTime.parse(tgmuon.substring(11, 19), timeFormat);
+        giotra = LocalTime.parse(tgtra.substring(11, 19), timeFormat);
         datePicker_NgayMuon.setDate(ngaymuon);
         datePicker_NgayTra.setDate(ngaytra);
         timePicker_GioMuon.setTime(giomuon);
         timePicker_GioTra.setTime(giotra);
     }
+
     //load du lieu len ban
-    private void loadDuLieuLenBang(){
+    private void loadDuLieuLenBang() {
         DefaultTableModel dtm = (DefaultTableModel) jTable_DanhSachMuon.getModel();
         dtm.setNumRows(0);
         for (ThietBi tb : dstbmuon) {
@@ -1943,22 +2132,24 @@ public class MainFrame extends javax.swing.JFrame {
         }
         jTable_TBCoSan.setModel(dtm);
     }
+
     // reset table 
-    private void resetTableTBMUON(){
+    private void resetTableTBMUON() {
         DefaultTableModel dtm = (DefaultTableModel) jTable_DSThBiMuon.getModel();
         dtm.setNumRows(0);
         jTable_DSThBiMuon.setModel(dtm);
     }
+
     //reset danh sach thiet bi can tra
-    private void resetSinhVienTra(){
+    private void resetSinhVienTra() {
 
         jTextField_HoTenSVTra.setText("");
         jTextField_LopSVTra.setText("");
         jTextField_SDTTra.setText("");
     }
-    
+
     //load danh sách thiết bị cần trả
-    private void layTBmuon(String mamuon){
+    private void layTBmuon(String mamuon) {
         dstbtra.clear();
         DefaultTableModel dtm = (DefaultTableModel) jTable_DSThBiTra.getModel();
         dtm.setNumRows(0);
@@ -1967,59 +2158,56 @@ public class MainFrame extends javax.swing.JFrame {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, mamuon);
             ResultSet rs = ps.executeQuery();
-            
-            
-            
+
             int stt = 0;
             Vector vt;
-            while(rs.next()){
-                
+            while (rs.next()) {
+
                 vt = new Vector();
                 ThietBi tb = new ThietBi();
-                vt.add(stt+""); //1
+                vt.add(stt + ""); //1
                 tb.matb = rs.getString("MATB");
                 vt.add(tb.matb); //2
                 tb.tenTB = rs.getString("TENTB");
                 vt.add(tb.tenTB); //3
                 vt.add(""); //4
-                
-                
+
                 System.out.println("test...");
                 stt++;
-                
+
                 dstbtra.add(tb);
                 dtm.addRow(vt);
-                
+
             }
             jTable_DSThBiTra.setModel(dtm);
         } catch (Exception e) {
             System.out.println("Loi load thiet bi can tra");
         }
     }
+
     //luu thong tin muon
-    private void luuThongTinMuon( String tgmuon, String tgtra , String masv, String manv){
+    private void luuThongTinMuon(String tgmuon, String tgtra, String masv, String manv) {
         String sqlmuon = "select  MAX(MAMUON) as max from muontb\n";
         String max = "";
         try {
             PreparedStatement ps_max = ketNoi.prepareStatement(sqlmuon);
             ResultSet rs = ps_max.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 max = rs.getString("max");
             }
             System.out.println(max);
         } catch (Exception e) {
         }
-        
+
         int maxInt = Integer.parseInt(max);
-        maxInt+=1;
-        max = maxInt +"";
-        System.out.println(max +" "+tgmuon+" "+ tgtra + " "+ masv);
-        
+        maxInt += 1;
+        max = maxInt + "";
+        System.out.println(max + " " + tgmuon + " " + tgtra + " " + masv);
+
         boolean check = true;
-        for(int i = 0; i<sotbMuon; i++){
-            if(dstbmuon.get(i).check)
-            {
+        for (int i = 0; i < sotbMuon; i++) {
+            if (dstbmuon.get(i).check) {
                 String sql = "insert into muontb (MAMUON, NGAYGIOMUON, NGAYGIODUDINHTRA, TRANGTHAIMUON, MASV, MANV) values (?, ?, ?, N'Mượn', ?, ?)";
                 try {
                     PreparedStatement ps = ketNoi.prepareStatement(sql);
@@ -2029,13 +2217,12 @@ public class MainFrame extends javax.swing.JFrame {
                     ps.setString(4, masv);
                     ps.setString(5, manv);
                     ps.executeUpdate();
-                    
-                    
+
                     ps.close();
-                    
+
                     JOptionPane.showMessageDialog(rootPane, "Mượn thành công");
                     System.out.println(TBmuon);
-                    luuChiTietMuon( TBmuon, max);
+                    luuChiTietMuon(TBmuon, max);
                     return;
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(rootPane, "Mượn không thành công");
@@ -2043,53 +2230,51 @@ public class MainFrame extends javax.swing.JFrame {
             }
         }
     }
-    private void locDanhSach(){
+
+    private void locDanhSach() {
         String ngaymuon = datePicker_NgayMuon.getDateStringOrEmptyString();
         String ngaytra = datePicker_NgayTra.getDateStringOrEmptyString();
         String giomuon = timePicker_GioMuon.getTimeStringOrEmptyString();
         String giotra = timePicker_GioTra.getTimeStringOrEmptyString();
-        
+
         String tgmuon, tgtra;
-        
+
         tgmuon = ngaymuon + " " + giomuon;
         tgtra = ngaytra + " " + giotra;
         Date date_tgmuon = null;
         Date date_tgtra = null;
-        try { 
+        try {
             date_tgmuon = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(tgmuon);
             date_tgtra = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(tgtra);
         } catch (ParseException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         int result = date_tgmuon.compareTo(date_tgtra);
-        if(result == 0) {
+        if (result == 0) {
             JOptionPane.showMessageDialog(rootPane, "Thời gian mượn không đủ");
-        }
-        else if(result > 0) {
+        } else if (result > 0) {
             JOptionPane.showMessageDialog(rootPane, "Thời gian mượn sau thời gian trả");
-        }
-        else {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
-            Date date = new Date();  
+        } else {
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = new Date();
             Date date_tgmuon1 = null;
             Date now = null;
-             try { 
-                 date_tgmuon1 = new SimpleDateFormat("yyyy-MM-dd").parse(ngaymuon);
-                 now = new SimpleDateFormat("yyyy-MM-dd").parse(formatter.format(date));
-                 System.out.println(now);
-                 System.err.println(date_tgmuon1);
+            try {
+                date_tgmuon1 = new SimpleDateFormat("yyyy-MM-dd").parse(ngaymuon);
+                now = new SimpleDateFormat("yyyy-MM-dd").parse(formatter.format(date));
+                System.out.println(now);
+                System.err.println(date_tgmuon1);
 
             } catch (ParseException ex) {
                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
             int result2 = now.compareTo(date_tgmuon1);
-            if(result2 > 0) {
+            if (result2 > 0) {
                 JOptionPane.showMessageDialog(rootPane, "Thời gian phải lớn hơn thời gian hiện tại");
-            }
-            else {
+            } else {
                 String sql = "select * from thietbi where TINHTRANGSD = N'Có sẵn' and MATB not in ( select MATB from muontb mtb, chitietmuon ctm where mtb.MAMUON = ctm.MAMUON and TRANGTHAIMUON = N'Đăng ký' and ((? between NGAYGIOMUON and NGAYGIODUDINHTRA) or ( ? between NGAYGIOMUON and NGAYGIODUDINHTRA) or (NGAYGIOMUON between ? and ?)))";
-        
+
                 try {
                     PreparedStatement ps = ketNoi.prepareStatement(sql);
                     ps.setString(1, tgmuon);
@@ -2111,7 +2296,6 @@ public class MainFrame extends javax.swing.JFrame {
                     rs.close();
                     ps.close();
 
-
                 } catch (Exception e) {
                     System.out.println("loi chon thiet bi...");
                 }
@@ -2120,106 +2304,98 @@ public class MainFrame extends javax.swing.JFrame {
                 jDialog_DanhSachMuon.setVisible(true);
             }
         }
-        
+
 //        String ngaymuon = datePicker_ngaymuon.getDateStringOrEmptyString();
-        
-        
-         
     }
-    
+
     //lưu thiết bị vào chi tiết mượn
-    private void luuChiTietMuon(ArrayList<ThietBi> Tbmuon, String mamuon){
-        for(int i=0; i < Tbmuon.size(); i++){
+    private void luuChiTietMuon(ArrayList<ThietBi> Tbmuon, String mamuon) {
+        for (int i = 0; i < Tbmuon.size(); i++) {
             String sql = "insert into chitietmuon (MAMUON, MATB, TRANGTHAIMUONCT) values (?, ?, N'Đang Mượn')";
             try {
-                PreparedStatement ps= ketNoi.prepareStatement(sql);
+                PreparedStatement ps = ketNoi.prepareStatement(sql);
                 ps.setString(1, mamuon);
                 ps.setString(2, Tbmuon.get(i).matb);
                 ps.executeUpdate();
             } catch (Exception e) {
                 System.out.println("Lỗi thêm chi tiết 201");
             }
-            
+
             capNhatTrangThaiTB(Tbmuon.get(i).matb);
         }
     }
+
     //Cập nhật trạng thái thiết bị đăng ký được mượn
-    private void capNhatTrangThaiTBDK(String mamuon){
+    private void capNhatTrangThaiTBDK(String mamuon) {
 
         String sql = "select MATB from chitietmuon where MAMUON = ?";
         try {
-            PreparedStatement ps= ketNoi.prepareStatement(sql);
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, mamuon);
             ResultSet rs = ps.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 String matb = rs.getString("MATB");
                 capNhatTrangThaiTB(matb);
             }
         } catch (Exception e) {
             System.out.println("Lỗi cập nhật chi tiết 109");
         }
-        
-    
+
     }
-    
-    
+
     //cập nhật thông tin chi tiết mượn đăng ký
-    private void capNhatChiTietMuonDK(String mamuon){
-            
-        
-        
-            String sql = "update chitietmuon set TRANGTHAIMUONCT = N'Đang mượn' where MAMUON = ?";
-            try {
-                PreparedStatement ps= ketNoi.prepareStatement(sql);
-                ps.setString(1, mamuon);
-                ps.executeUpdate();
-            } catch (Exception e) {
-                System.out.println("Lỗi cập nhật chi tiết 102");
-            }
-        
-    
+    private void capNhatChiTietMuonDK(String mamuon) {
+
+        String sql = "update chitietmuon set TRANGTHAIMUONCT = N'Đang mượn' where MAMUON = ?";
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, mamuon);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Lỗi cập nhật chi tiết 102");
+        }
+
     }
+
     //Cập nhật thong tin mượn đăng ký
-    private void capNhatMuonDK(String mamuon, String manv){
+    private void capNhatMuonDK(String mamuon, String manv) {
 
-            String sql = "update chitietmuon set TRANGTHAIMUON = N'Mượn',MANV = ? where MAMUON = ?";
-            try {
-                PreparedStatement ps= ketNoi.prepareStatement(sql);
-                ps.setString(1, manv);
-                ps.setString(2, mamuon);
-                ps.executeUpdate();
-            } catch (Exception e) {
-                System.out.println("Lỗi cập nhật thông tin mượn  101");
-            }
-        
-    
+        String sql = "update chitietmuon set TRANGTHAIMUON = N'Mượn',MANV = ? where MAMUON = ?";
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, manv);
+            ps.setString(2, mamuon);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Lỗi cập nhật thông tin mượn  101");
+        }
+
     }
+
     //kiểm tra thông tin sinh viên đã tồn tại chưa
-    private boolean kiemTraThongTinSV(String masv){
+    private boolean kiemTraThongTinSV(String masv) {
 
-            String sql = "select * from sinhvien where MASV = ?";
-            try {
-                PreparedStatement ps= ketNoi.prepareStatement(sql);
-                ps.setString(1, masv);
-                ResultSet rs = ps.executeQuery();
-                
-                if(rs.next()){
-                    return true;
-                }
-                
-            } catch (Exception e) {
-                System.out.println("Lỗi cập nhật thông tin mượn  101");
+        String sql = "select * from sinhvien where MASV = ?";
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, masv);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                return true;
             }
-            return false;
-    
+
+        } catch (Exception e) {
+            System.out.println("Lỗi cập nhật thông tin mượn  101");
+        }
+        return false;
+
     }
-    
-    
-    
+
     //Lưu sinh viên mới
-    private void luuSV(String masv , String hoten , String lop, String sdt){
-        
+    private void luuSV(String masv, String hoten, String lop, String sdt) {
+
         String sql = "insert into sinhvien (MASV, HOTEN, LOP, SDT) values (?, ?, ?, ?)";
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
@@ -2232,8 +2408,9 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println("Lỗi thêm sinh viên mới 203");
         }
     }
+
     //cập nhật trạng thái thiết bị trên bảng thiết bị sau khi mượn
-    private void capNhatTrangThaiTB(String matb){
+    private void capNhatTrangThaiTB(String matb) {
         String sql = "update thietbi set TINHTRANGSD = N'Đang mượn' where MATB = ?";
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
@@ -2243,87 +2420,108 @@ public class MainFrame extends javax.swing.JFrame {
             System.out.println("Lỗi cập nhật thiết bị 501");
         }
     }
+
+    //cap nhat trang  tb sau khi duoc tra
+    private void capNhatTrangThaiTBTraXong(String matb) {
+        String sql = "update thietbi set TINHTRANGSD = N'Có sẵn' where MATB = ?";
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, matb);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("Lỗi cập nhật thiết bị 501");
+        }
+    }
+
     //Kiểm tra danh sách thiết bị trong sanh sách đã được trả hết chưa
-    private boolean kiemTraTraHoanTat(String mamuon){
+    private boolean kiemTraTraHoanTat(String mamuon) {
         String sql = "select * from chitietmuon where MAMUON = ? and TRANGTHAIMUONCT = N'Đang mượn'";
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, mamuon);
             ResultSet rs = ps.executeQuery();
-            
-            
-            if(rs.next()){
-                return false;
+
+            if (rs.next()) {
+                return false;  //chua tra het
             }
         } catch (Exception e) {
             System.out.println("Lỗi kiểm tra trả hoàn tất 109");
         }
         return true;
     }
+
     //Chọn các thiết bị cần trả 
-    private void chonTbTra(){
-        for(int i=0; i<dstbtra.size(); i++){
-            if(dstbtra.get(i).check == true){
-                TBtra.add(dstbtra.get(i));
+    private void chonTbTra() {
+        TBtra.clear();
+        for (int i = 0; i < dstbtra.size(); i++) {
+            boolean check = (boolean) jTable_DSThBiTra.getValueAt(i, 4);
+            
+            ThietBi tb;
+            if (check == true) {
+                String tinhtrang = (String) jTable_DSThBiTra.getValueAt(i, 3);
+                tb = new ThietBi();
+                tb = dstbtra.get(i);
+                tb.moTa = tinhtrang;
+                TBtra.add(tb);
+                
             }
         }
+        
+        
     }
-    
-    
-    
-    
+
     //Cập nhật trạng thái chi tiết trả từng tb
-    private void capNhatChiTietTBTra(String mamuon, String matb){
+    private void capNhatChiTietTBTra(String mamuon, String matb) {
         String sql = "update chitietmuon set TRANGTHAIMUONCT = N'Đã trả' where MAMUON = ? and MATB = ?";
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, mamuon);
             ps.setString(2, matb);
             ps.executeUpdate();
-            
-           
+
         } catch (Exception e) {
             System.out.println("Lỗi cập nhật trạng thái trả chi tiết");
         }
     }
-    private void capNhatChiTietTra(String mamuon){
-        
-        for(int i=0; i<TBtra.size(); i++){
+
+    private void capNhatChiTietTra(String mamuon) {
+
+        for (int i = 0; i < TBtra.size(); i++) {
             capNhatChiTietTBTra(mamuon, TBtra.get(i).matb);
         }
-        
+
     }
-    
+
     //tao ma tra
-    private String taoMaTra(){
+    private String taoMaTra() {
         String sqlmuon = "select  MAX(MATRA) as max from tratb\n";
         String max = "";
         try {
             PreparedStatement ps_max = ketNoi.prepareStatement(sqlmuon);
             ResultSet rs = ps_max.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 max = rs.getString("max");
             }
             System.out.println(max);
         } catch (Exception e) {
         }
-        
+
         int maxInt = Integer.parseInt(max);
-        maxInt+=1;
-        max = maxInt +"";
+        maxInt += 1;
+        max = maxInt + "";
         return max;
     }
+
     //kiem tra tra lan dau
-    private boolean traLanDau(String mamuon){
+    private boolean traLanDau(String mamuon) {
         String sql = "select * from chitietmuon where MAMUON = ? and TRANGTHAIMUONCT = N'Đã trả'";
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, mamuon);
             ResultSet rs = ps.executeQuery();
-            
-            
-            if(rs.next()){
+
+            if (rs.next()) {
                 return false;
             }
         } catch (Exception e) {
@@ -2331,55 +2529,90 @@ public class MainFrame extends javax.swing.JFrame {
         }
         return true;
     }
+
     //trả thiết bị
-    private void traTBChiTiet(String matra, String mamuon, String tinhtrangtb, String masv){
-        for(int i=0; i<TBtra.size(); i++){
-            String sql = "insert into chitiettra (MATRA, MATB, NGAYGIOTRA, TINHTRANGTB, MASV) values (?, ?, ?, ?, ?)";
+    private void traTBChiTiet(String matra, String masv, String manv) {
+        for (int i = 0; i < TBtra.size(); i++) {
+            String sql = "insert into chitiettra (MATRA, MATB, NGAYGIOTRA, TINHTRANGTB, MASV, MANV) values (?, ?, ?, ?, ?, ?)";
             try {
                 PreparedStatement ps = ketNoi.prepareStatement(sql);
                 ps.setString(1, matra);
-                ps.setString(2, mamuon);
+                ps.setString(2, TBtra.get(i).matb);
                 //lay thoi gian hien tai
                 String pattern = "yyyy-MM-dd HH:mm:ss";
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 
                 String tgHT = simpleDateFormat.format(new Date());
                 ps.setString(3, tgHT);
-                ps.setString(4, tinhtrangtb);
+                ps.setString(4, TBtra.get(i).moTa);
                 ps.setString(5, masv);
-                
-                
+                ps.setString(6, manv);
+
                 ps.executeUpdate();
-                    
+                capNhatTrangThaiTBTraXong(TBtra.get(i).matb);
 
             } catch (Exception e) {
                 System.out.println("Lỗi trả thiết bị chi tiết 110");
             }
         }
     }
-    
-    private void traTB(String mamuon){
-        if(traLanDau(mamuon)){
-            String matra = taoMaTra();
-                String sql = "insert into tratb (MATRA, MAMUON) values (?, ?)";
-                try {
-                    PreparedStatement ps = ketNoi.prepareStatement(sql);
-                    ps.setString(1, matra);
-                    ps.setString(2, mamuon);
-                    ps.executeUpdate();
-                    traTBChiTiet(matra, mamuon, matra, matra);
 
-                } catch (Exception e) {
-                    System.out.println("Lỗi trả thiết bị 110");
-                }
+    //lay ma tra
+    private String layMaTra(String mamuon) {
+        String sql = "select MATRA from tratb  where MAMUON = ?";
+        String matra = "";
+        try {
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
+            ps.setString(1, mamuon);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                matra = rs.getString("MATRA");
+                return matra;
+            }
+        } catch (Exception e) {
 
         }
+        return matra;
     }
-    
+
+    private void traTB(String mamuon) {
+        String masv = jTextField_MaSVTra.getText();
+        String manv = jLabel_MaNV.getText();
+        if (traLanDau(mamuon)) {
+            String matra = taoMaTra();
+            String sql = "insert into tratb (MATRA, MAMUON) values (?, ?)";
+            try {
+                PreparedStatement ps = ketNoi.prepareStatement(sql);
+                ps.setString(1, matra);
+                ps.setString(2, mamuon);
+                ps.executeUpdate();
+                traTBChiTiet(matra, masv, manv);
+                capNhatChiTietTra(mamuon);
+            } catch (Exception e) {
+                System.out.println("Lỗi trả thiết bị 110");
+            }
+
+        } else {
+            String matra = layMaTra(mamuon);
+            traTBChiTiet(matra, masv, manv);
+        }
+
+        if (kiemTraTraHoanTat(mamuon)) {
+            String sql = "update muontb set TRANGTHAIMUON = N'Đã trả' where MAMUON = ?";
+            try {
+                PreparedStatement ps = ketNoi.prepareStatement(sql);
+                ps.setString(1, mamuon);
+                ps.executeUpdate();
+
+            } catch (Exception e) {
+                System.out.println("Lỗi cập nhật trạng thái bảng mượn");
+            }
+        }
+
+    }
+
     //======================================= button ==============================================
-    
-    
-    
     //======================================= <> =================================================
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         // TODO add your handling code here:
@@ -2387,11 +2620,11 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel_muontb.setVisible(false);
         jPanel_tratb.setVisible(false);
         jPanel_themtb.setVisible(false);
-        
+
         jPanel_trangchu_btn.setBackground(Color.white);
-        jPanel_muontb_btn.setBackground(new Color(153,153,153));
-        jPanel_tratb_btn.setBackground(new Color(153,153,153));
-        jPanel_themtb_btn.setBackground(new Color(153,153,153));
+        jPanel_muontb_btn.setBackground(new Color(153, 153, 153));
+        jPanel_tratb_btn.setBackground(new Color(153, 153, 153));
+        jPanel_themtb_btn.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
@@ -2400,11 +2633,11 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel_muontb.setVisible(true);
         jPanel_tratb.setVisible(false);
         jPanel_themtb.setVisible(false);
-        
-        jPanel_trangchu_btn.setBackground(new Color(153,153,153));
+
+        jPanel_trangchu_btn.setBackground(new Color(153, 153, 153));
         jPanel_muontb_btn.setBackground(Color.white);
-        jPanel_tratb_btn.setBackground(new Color(153,153,153));
-        jPanel_themtb_btn.setBackground(new Color(153,153,153));
+        jPanel_tratb_btn.setBackground(new Color(153, 153, 153));
+        jPanel_themtb_btn.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -2413,11 +2646,11 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel_muontb.setVisible(false);
         jPanel_tratb.setVisible(true);
         jPanel_themtb.setVisible(false);
-        
-        jPanel_trangchu_btn.setBackground(new Color(153,153,153));
-        jPanel_muontb_btn.setBackground(new Color(153,153,153));
+
+        jPanel_trangchu_btn.setBackground(new Color(153, 153, 153));
+        jPanel_muontb_btn.setBackground(new Color(153, 153, 153));
         jPanel_tratb_btn.setBackground(Color.white);
-        jPanel_themtb_btn.setBackground(new Color(153,153,153));
+        jPanel_themtb_btn.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -2426,24 +2659,24 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel_muontb.setVisible(false);
         jPanel_tratb.setVisible(false);
         jPanel_themtb.setVisible(true);
-        
-        jPanel_trangchu_btn.setBackground(new Color(153,153,153));
-        jPanel_muontb_btn.setBackground(new Color(153,153,153));
-        jPanel_tratb_btn.setBackground(new Color(153,153,153));
+
+        jPanel_trangchu_btn.setBackground(new Color(153, 153, 153));
+        jPanel_muontb_btn.setBackground(new Color(153, 153, 153));
+        jPanel_tratb_btn.setBackground(new Color(153, 153, 153));
         jPanel_themtb_btn.setBackground(Color.white);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jButton_TimSVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_TimSVActionPerformed
         // Nhan tim sinh vien:
         String masv = jTextField_MaSV.getText();
-        
-        if("".equals(masv)){
+
+        if ("".equals(masv)) {
             jTextField_HoTen.setText("");
             jTextField_Lop.setText("");
             jTextField_SDT.setText("");
             jButton_DSDangKy.setEnabled(false);
             JOptionPane.showMessageDialog(rootPane, "Nhập mã số sinh viên");
-            
+
             return;
         }
         System.out.println(masv);
@@ -2452,7 +2685,7 @@ public class MainFrame extends javax.swing.JFrame {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, masv);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 String hoten = rs.getString("HOTEN");
                 String lop = rs.getString("LOP");
                 String sdt = rs.getString("SDT");
@@ -2460,10 +2693,9 @@ public class MainFrame extends javax.swing.JFrame {
                 jTextField_HoTen.setText(hoten);
                 jTextField_Lop.setText(lop);
                 jTextField_SDT.setText(sdt);
-                
+
                 kiemTraDK(masv);
-            }
-            else {
+            } else {
                 jTextField_HoTen.setText("");
                 jTextField_Lop.setText("");
                 jTextField_SDT.setText("");
@@ -2471,7 +2703,7 @@ public class MainFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Chưa có thông tin sinh viên");
             }
         } catch (Exception e) {
-            
+
         }
     }//GEN-LAST:event_jButton_TimSVActionPerformed
 
@@ -2486,7 +2718,7 @@ public class MainFrame extends javax.swing.JFrame {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, masv);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 Vector v = new Vector();
                 String mamuon, tgmuon, tgtra;
                 mamuon = rs.getString("MAMUON");
@@ -2496,21 +2728,20 @@ public class MainFrame extends javax.swing.JFrame {
                 tgtra = rs.getString("NGAYGIODUDINHTRA");
                 v.add(tgtra);
                 dtm.addRow(v);
-                dtm.setValueAt(false , sods, 3);
+                dtm.setValueAt(false, sods, 3);
                 sods++;
             }
-            if(sods > 0){
+            if (sods > 0) {
                 jTable_ChonDSDK.setModel(dtm);
                 jDialog_ChonDSDangKy.setLocationRelativeTo(null);
                 jDialog_ChonDSDangKy.setVisible(true);
-                
-            }
-            else {
+
+            } else {
                 JOptionPane.showMessageDialog(rootPane, "Sinh viên chưa đăng ký mượn thiết bị");
             }
             ps.close();
             rs.close();
-            
+
         } catch (Exception e) {
             System.out.println("Load list error 304");
         }
@@ -2520,11 +2751,11 @@ public class MainFrame extends javax.swing.JFrame {
         //chon danh sach dang ky:
         Vector dsmuon = new Vector();
 //        int j=0;
-        for(int i=0; i<sods; i++){
+        for (int i = 0; i < sods; i++) {
             boolean check = (boolean) jTable_ChonDSDK.getValueAt(i, 3);
-            System.out.println("check: " +check);
-            if(check){
-                
+            System.out.println("check: " + check);
+            if (check) {
+
                 dsmuon.add(jTable_ChonDSDK.getValueAt(i, 0));
                 maMuonDK = (String) jTable_ChonDSDK.getValueAt(i, 0);
                 SVDaDK = true;
@@ -2534,7 +2765,7 @@ public class MainFrame extends javax.swing.JFrame {
         layThoiGianMuonTra((String) dsmuon.get(0));
         jDialog_ChonDSDangKy.setVisible(false);
         jButton_ChonTB.setEnabled(false);
-        
+
     }//GEN-LAST:event_jButton_ChonDSDKActionPerformed
 
     private void jButton_DatLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DatLaiActionPerformed
@@ -2556,12 +2787,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton_MaSVmuonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_MaSVmuonActionPerformed
         // tim sv tra tb:
         String masv = jTextField_MaSVMuon.getText();
-        
-        if("".equals(masv)){
-            
-    
+
+        if ("".equals(masv)) {
+
             JOptionPane.showMessageDialog(rootPane, "Nhập mã số sinh viên");
-            
+
             return;
         }
         System.out.println(masv);
@@ -2570,18 +2800,16 @@ public class MainFrame extends javax.swing.JFrame {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, masv);
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 jDialog_ChonDSDangKy.setLocationRelativeTo(null);
                 jDialog_ChonDSDangKy.setVisible(true);
-                
-            }
-            else {
 
-                
+            } else {
+
                 JOptionPane.showMessageDialog(rootPane, "Không tìm thấy thông tin mượn");
             }
         } catch (Exception e) {
-            
+
         }
     }//GEN-LAST:event_jButton_MaSVmuonActionPerformed
 
@@ -2596,64 +2824,63 @@ public class MainFrame extends javax.swing.JFrame {
         boolean check = true;
         Date timenow = new Date();
         String ngaymuon = datePicker_NgayMuon.getDateStringOrEmptyString();
-        if(ngaymuon == ""){
+        if (ngaymuon == "") {
             datePicker_NgayMuon.setDateToToday();
             ngaymuon = datePicker_NgayMuon.getDateStringOrEmptyString();
         }
         String ngaytra = datePicker_NgayTra.getDateStringOrEmptyString();
-        if(ngaytra==""){
+        if (ngaytra == "") {
             JOptionPane.showMessageDialog(rootPane, "Nhập thời gian sẽ trả thiết bị");
             check = false;
         }
         String giomuon = timePicker_GioMuon.getTimeStringOrEmptyString();
-        if(giomuon == ""){
+        if (giomuon == "") {
             timePicker_GioMuon.setTimeToNow();
             giomuon = timePicker_GioMuon.getTimeStringOrEmptyString();
         }
         String giotra = timePicker_GioTra.getTimeStringOrEmptyString();
-        if(giotra=="" && check == true){
+        if (giotra == "" && check == true) {
             JOptionPane.showMessageDialog(rootPane, "Nhập thời gian sẽ trả thiết bị");
             check = false;
         }
-        String tgMuon = ngaymuon+" "+giomuon;
-        String tgTra = ngaytra + " "+giotra;
-        if(check) {
-            
+        String tgMuon = ngaymuon + " " + giomuon;
+        String tgTra = ngaytra + " " + giotra;
+        if (check) {
+
             locDanhSach();
-            
-            
+
         }
-        
-        
+
+
     }//GEN-LAST:event_jButton_ChonTBActionPerformed
 
     private void jButton1_XacNhanChonTBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_XacNhanChonTBActionPerformed
         // TODO add your handling code here:
         int soTBi = 0;
 
-        for(int i=0; i<sotbMuon ;i++){
+        for (int i = 0; i < sotbMuon; i++) {
             boolean c = (boolean) jTable_DanhSachMuon.getValueAt(i, 3);
             dstbmuon.get(i).check = c;
-            if(c){
+            if (c) {
                 soTBi++;
             }
         }
         int dem = 0;
-        if(soTBi > 0) {
-            
+        if (soTBi > 0) {
+
             jDialog_DanhSachMuon.setVisible(false);
             DefaultTableModel dtm = (DefaultTableModel) jTable_DSThBiMuon.getModel();
             dtm.setNumRows(0);
-            for(int i=0; i<sotbMuon ;i++){
+            for (int i = 0; i < sotbMuon; i++) {
                 Vector vt = new Vector();
-                if(dstbmuon.get(i).check){
+                if (dstbmuon.get(i).check) {
                     vt.add(dem + "");
                     vt.add(dstbmuon.get(i).matb);
                     vt.add(dstbmuon.get(i).tenTB);
                     vt.add(dstbmuon.get(i).moTa);
                     TBmuon.add(dstbmuon.get(i));
                     System.out.println("MTB: " + dstbmuon.get(i).matb);
-                    
+
                     dtm.addRow(vt);
                     dem++;
                     SVDaDK = false;
@@ -2662,11 +2889,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
             jTable_TBCoSan.setModel(dtm);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_jButton1_XacNhanChonTBActionPerformed
-/*
+    /*
     private void jButton_TimMaMuonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14ActionPerformed
@@ -2675,14 +2901,13 @@ public class MainFrame extends javax.swing.JFrame {
         // TIM danh sach muon bang ma sinh vien:
         String masv = jTextField_MaSVMuon.getText();
         masv = masv.toUpperCase();
-         jTextField_MaSVMuon.setText(masv);
+        jTextField_MaSVMuon.setText(masv);
         DefaultTableModel dtm = (DefaultTableModel) jTable_ChonDSMuon.getModel();
         dtm.setNumRows(0);
-        if("".equals(masv)){
-            
-    
+        if ("".equals(masv)) {
+
             JOptionPane.showMessageDialog(rootPane, "Nhập mã số sinh viên");
-            
+
             return;
         }
         System.out.println(masv);
@@ -2693,8 +2918,8 @@ public class MainFrame extends javax.swing.JFrame {
             ResultSet rs = ps.executeQuery();
             Vector v;
             boolean check = true;
-            while(rs.next()){
-                v= new Vector();
+            while (rs.next()) {
+                v = new Vector();
                 String mamuon, tgmuon, tgtra;
                 mamuon = rs.getString("MAMUON");
                 tgmuon = rs.getString("NGAYGIOMUON");
@@ -2705,11 +2930,10 @@ public class MainFrame extends javax.swing.JFrame {
                 v.add(masv);
                 dtm.addRow(v);
                 check = false;
-                
-            }
-            if(check) {
 
-                
+            }
+            if (check) {
+
                 JOptionPane.showMessageDialog(rootPane, "Không tìm thấy thông tin mượn");
                 return;
             }
@@ -2717,7 +2941,7 @@ public class MainFrame extends javax.swing.JFrame {
             jDialog_ChonDSTra.setLocationRelativeTo(null);
             jDialog_ChonDSTra.setVisible(true);
         } catch (Exception e) {
-            
+
         }
     }//GEN-LAST:event_jButton_TimMaSVmuonActionPerformed
 
@@ -2726,24 +2950,21 @@ public class MainFrame extends javax.swing.JFrame {
         String mamuon = jTextField_MaMuon.getText();
         DefaultTableModel dtm = (DefaultTableModel) jTable_DanhSachMuon.getModel();
         dtm.setNumRows(0);
-        if("".equals(mamuon)){
+        if ("".equals(mamuon)) {
             JOptionPane.showMessageDialog(rootPane, "Nhập mã mượn cần tìm");
-        }
-        else {
+        } else {
             String sql = "select * from muontb where MAMUON = ? and TRANGTHAIMUON = N'Mượn'";
             try {
-                PreparedStatement ps =ketNoi.prepareStatement(sql);
+                PreparedStatement ps = ketNoi.prepareStatement(sql);
                 ps.setString(1, mamuon);
-                ResultSet rs= ps.executeQuery();
-                
-                if(rs.next()){
+                ResultSet rs = ps.executeQuery();
+
+                if (rs.next()) {
                     System.out.println("mamuon = " + mamuon);
                     layMaSVMuon(mamuon);
                     mamuonTra = mamuon;
                     layTBmuon(mamuon);
-                }
-                
-                else {
+                } else {
                     JOptionPane.showMessageDialog(rootPane, "Không tìm thấy mã mượn");
                     mamuon = "";
                 }
@@ -2764,16 +2985,15 @@ public class MainFrame extends javax.swing.JFrame {
         int vitri = jTable_ChonDSMuon.getSelectedRow();
         mamuon = (String) jTable_ChonDSMuon.getValueAt(vitri, 0);
         System.out.println("mamuon: " + mamuon);
-        if(mamuon == ""){
+        if (mamuon == "") {
             JOptionPane.showMessageDialog(rootPane, "Chọn danh sách cần trả");
             mamuonTra = "";
-        }
-        else {
-                layTBmuon(mamuon);
-                mamuonTra = mamuon;
-               jDialog_ChonDSTra.setVisible(false);
-               layMaSVMuon(mamuon);
-               jTextField_MaMuon.setText(mamuon);
+        } else {
+            layTBmuon(mamuon);
+            mamuonTra = mamuon;
+            jDialog_ChonDSTra.setVisible(false);
+            layMaSVMuon(mamuon);
+            jTextField_MaMuon.setText(mamuon);
 //             String sql = "select MASV from  where mamuon = ?";
 //            try {
 //                PreparedStatement ps = ketNoi.prepareStatement(sql);
@@ -2785,7 +3005,7 @@ public class MainFrame extends javax.swing.JFrame {
 //            } catch (Exception e) {
 //            }
         }
-        
+
     }//GEN-LAST:event_jButton_ChonDSMuonActionPerformed
 
     private void jButton_DanhSachDaMuonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DanhSachDaMuonActionPerformed
@@ -2797,7 +3017,7 @@ public class MainFrame extends javax.swing.JFrame {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             Vector vt;
-            while(rs.next()) {                
+            while (rs.next()) {
                 vt = new Vector();
                 vt.add(rs.getString("MAMUON"));
                 vt.add(rs.getString("NGAYGIOMUON"));
@@ -2808,7 +3028,7 @@ public class MainFrame extends javax.swing.JFrame {
             jTable_ChonDSMuon.setModel(dtm);
         } catch (Exception e) {
         }
-        
+
         jDialog_ChonDSTra.setLocationRelativeTo(null);
         jDialog_ChonDSTra.setVisible(true);
     }//GEN-LAST:event_jButton_DanhSachDaMuonActionPerformed
@@ -2817,11 +3037,10 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         String masv = jTextField_MaSVTra.getText();
         masv = masv.trim();
-        if(masv == ""){
+        if (masv == "") {
             resetSinhVienTra();
             JOptionPane.showMessageDialog(rootPane, "Nhập mã sinh viên cần tìm");
-        }
-        else {
+        } else {
             String sql = "select * from sinhvien where MASV = ?";
             try {
                 PreparedStatement ps = ketNoi.prepareStatement(sql);
@@ -2829,103 +3048,93 @@ public class MainFrame extends javax.swing.JFrame {
                 ResultSet rs = ps.executeQuery();
                 String hoten, lop, sdt;
 
-                if(rs.next()){
-                    
+                if (rs.next()) {
+
                     hoten = rs.getString("HOTEN");
                     lop = rs.getString("LOP");
                     sdt = rs.getString("SDT");
-                    
-                    
+
                     jTextField_HoTenSVTra.setText(hoten);
                     jTextField_LopSVTra.setText(lop);
                     jTextField_SDTTra.setText(sdt);
-                }
-                else {
+                } else {
                     JOptionPane.showMessageDialog(rootPane, "Không tìm thấy mã sinh viên");
                     resetSinhVienTra();
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
+
         }
     }//GEN-LAST:event_jButton_TimMaSVTraActionPerformed
 
     private void jButton_XNmuonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_XNmuonActionPerformed
         // Xác nhận cho mượn thiết bị:
-        
+
         String manv = jLabel_MaNV.getText();
-        
-        
-        
-        
-        
+
         //Xác nhận điều kiện
         String masv = jTextField_MaSV.getText();
-        String hoten = jTextField_HoTen.getText();    
+        String hoten = jTextField_HoTen.getText();
         String lop = jTextField_Lop.getText();
         String sdt = jTextField_SDT.getText();
         masv = masv.trim();
         boolean ktra = true;
         boolean tontaiSV = false;
         tontaiSV = timMaSVmuon();
-        if(masv!=""){
-            
-            
+        if (masv != "") {
+
             ktra = false;
-        }
-        else {
-            if("".equals(masv)){
-            JOptionPane.showMessageDialog(rootPane,"Nhập mã sinh viên");
-            ktra = false;
+        } else {
+            if ("".equals(masv)) {
+                JOptionPane.showMessageDialog(rootPane, "Nhập mã sinh viên");
+                ktra = false;
             }
 
-            if("".equals(hoten) && ktra && !tontaiSV){
+            if ("".equals(hoten) && ktra && !tontaiSV) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập họ tên");
                 ktra = false;
             }
-            if("".equals(lop) && ktra && !tontaiSV){
+            if ("".equals(lop) && ktra && !tontaiSV) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập lớp");
                 ktra = false;
             }
-            if(sdt=="" && ktra && !tontaiSV){
+            if (sdt == "" && ktra && !tontaiSV) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập số điện thoại");
                 ktra = false;
             }
         }
-        if(!tontaiSV) {
-            if("".equals(masv)){
-            JOptionPane.showMessageDialog(rootPane,"Nhập mã sinh viên");
-            ktra = false;
+        if (!tontaiSV) {
+            if ("".equals(masv)) {
+                JOptionPane.showMessageDialog(rootPane, "Nhập mã sinh viên");
+                ktra = false;
             }
 
-            if("".equals(hoten) && ktra ){
+            if ("".equals(hoten) && ktra) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập họ tên");
                 ktra = false;
             }
-            if("".equals(lop) && ktra ){
+            if ("".equals(lop) && ktra) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập lớp");
                 ktra = false;
             }
-            if(sdt=="" && ktra ){
+            if (sdt == "" && ktra) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập số điện thoại");
                 ktra = false;
             }
         }
-        
-        
-        if(!TBmuon.isEmpty())  {
+
+        if (!TBmuon.isEmpty()) {
             //lưu thông tin sinh viên nếu là sinh viên mới
-            if(!kiemTraThongTinSV(masv)){
+            if (!kiemTraThongTinSV(masv)) {
                 luuSV(masv, hoten, lop, sdt);
             }
             //kiểm tra danh sách đăng ký hay mượn tại phòng thiết bị
-            
-            if(SVDaDK){
+
+            if (SVDaDK) {
                 capNhatMuonDK(masv, manv);
                 capNhatChiTietMuonDK(maMuonDK);
-            }
-            else {
+            } else {
                 //lưu thông tin mượn vào bảng mượn
                 String ngaymuon = datePicker_NgayMuon.getDateStringOrEmptyString();
                 String ngaytra = datePicker_NgayTra.getDateStringOrEmptyString();
@@ -2935,96 +3144,91 @@ public class MainFrame extends javax.swing.JFrame {
                 String tgtra = ngaytra + " " + giotra;
 
                 luuThongTinMuon(tgmuon, tgtra, masv, manv);
-                
+
                 //lưu thông tin chi tiết bản chi tiết mượn
             }
-            
-            
-            
-            
-        }
-        else {
+
+        } else {
             JOptionPane.showMessageDialog(rootPane, "Chọn thiết bị cần mượn");
         }
-        
-        
-        
-        
-    }//GEN-LAST:event_jButton_XNmuonActionPerformed
 
+
+    }//GEN-LAST:event_jButton_XNmuonActionPerformed
+//999
     private void jButton_XacNhanTraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_XacNhanTraActionPerformed
         // Xác nhận trả tb
         //kiểm tra điều kiện
         //1. Sinh viên trả
         //Xác nhận điều kiện
         String masv = jTextField_MaSVTra.getText();
-        String hoten = jTextField_HoTenSVTra.getText();    
+        String hoten = jTextField_HoTenSVTra.getText();
         String lop = jTextField_LopSVTra.getText();
         String sdt = jTextField_SDTTra.getText();
+        chonTbTra();
         masv = masv.trim();
+        masv = masv.toUpperCase();
         boolean ktra = true;
         boolean tontaiSV = false;
+        String mamuon = jTextField_MaMuon.getText();
         tontaiSV = timMaSVmuon();
-        if(masv!=""){
-            
-            
-            ktra = false;
+
+        if (mamuon == "") {
+            JOptionPane.showMessageDialog(rootPane, "Nhập mã mượn");
         }
-        else {
-            if("".equals(masv)){
-            JOptionPane.showMessageDialog(rootPane,"Nhập mã sinh viên trả");
+
+        if (masv != "") {
+
             ktra = false;
+        } else {
+            if ("".equals(masv)) {
+                JOptionPane.showMessageDialog(rootPane, "Nhập mã sinh viên trả");
+                ktra = false;
             }
 
-            if("".equals(hoten) && ktra && !tontaiSV){
+            if ("".equals(hoten) && ktra && !tontaiSV) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập họ tên");
                 ktra = false;
             }
-            if("".equals(lop) && ktra && !tontaiSV){
+            if ("".equals(lop) && ktra && !tontaiSV) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập lớp");
                 ktra = false;
             }
-            if(sdt=="" && ktra && !tontaiSV){
+            if (sdt == "" && ktra && !tontaiSV) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập số điện thoại");
                 ktra = false;
             }
         }
-        if(!tontaiSV) {
-            if("".equals(masv)){
-            JOptionPane.showMessageDialog(rootPane,"Nhập mã sinh viên");
-            ktra = false;
+        if (!tontaiSV) {
+            if ("".equals(masv)) {
+                JOptionPane.showMessageDialog(rootPane, "Nhập mã sinh viên");
+                ktra = false;
             }
 
-            if("".equals(hoten) && ktra ){
+            if ("".equals(hoten) && ktra) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập họ tên");
                 ktra = false;
             }
-            if("".equals(lop) && ktra ){
+            if ("".equals(lop) && ktra) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập lớp");
                 ktra = false;
             }
-            if(sdt=="" && ktra ){
+            if (sdt == "" && ktra) {
                 JOptionPane.showMessageDialog(rootPane, "Nhập số điện thoại");
                 ktra = false;
             }
         }
         //2. Danh sách thiết bị trả
-        if(!TBtra.isEmpty())  {
+        if (!TBtra.isEmpty()) {
             //lưu thông tin sinh viên nếu là sinh viên mới
-            if(!kiemTraThongTinSV(masv)){
+            if (!kiemTraThongTinSV(masv)) {
                 luuSV(masv, hoten, lop, sdt);
             }
-            //kiểm tra danh sách đăng ký hay mượn tại phòng thiết bị
-            
+
             //cập nhật trạng thái trả
-            
-            
-            
-            
-            
-        }
-        else {
-            JOptionPane.showMessageDialog(rootPane, "Chọn thiết bị cần mượn");
+            traTB(mamuon);
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Chọn thiết bị cần trả");
         }
     }//GEN-LAST:event_jButton_XacNhanTraActionPerformed
 
@@ -3032,8 +3236,8 @@ public class MainFrame extends javax.swing.JFrame {
         // Chọn tất cả tb cần trả
         DefaultTableModel dtm = (DefaultTableModel) jTable_DSThBiTra.getModel();
         dtm.setNumRows(0);
-        
-        for(int i=0; i<dstbtra.size(); i++){
+
+        for (int i = 0; i < dstbtra.size(); i++) {
             dstbtra.get(i).check = true;
             Vector v = new Vector();
             v.add(i);
@@ -3041,13 +3245,17 @@ public class MainFrame extends javax.swing.JFrame {
             v.add(dstbtra.get(i).tenTB);
             v.add(dstbtra.get(i).tinhTrang);
             v.add(dstbtra.get(i).check);
-            
+
             dtm.addRow(v);
         }
         jTable_DSThBiTra.setModel(dtm);
-        
+
     }//GEN-LAST:event_jButton_ChonTatCaActionPerformed
-/*
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+    /*
 
     /**
      * @param args the command line arguments
@@ -3080,7 +3288,7 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainFrame().setVisible(true);
-                
+
             }
         });
     }
@@ -3088,9 +3296,12 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker_NgayMuon;
     private com.github.lgooddatepicker.components.DatePicker datePicker_NgayTra;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton1_TimMaMuonTBi;
     private javax.swing.JButton jButton1_XacNhanChonTB;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton_ChonDSDK;
     private javax.swing.JButton jButton_ChonDSMuon;
     private javax.swing.JButton jButton_ChonTB;
@@ -3108,6 +3319,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton_XacNhanTra;
     private javax.swing.JButton jButton_Xoa;
     private javax.swing.JButton jButton_gioHT;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox_SapXep;
     private javax.swing.JComboBox<String> jComboBox_TrangThai;
     private javax.swing.JDialog jDialog_ChonDSDangKy;
@@ -3161,7 +3373,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
+    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -3179,8 +3400,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
+    private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
+    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -3204,6 +3427,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -3217,6 +3441,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTable_DSThBiTra;
     private javax.swing.JTable jTable_DanhSachMuon;
     private javax.swing.JTable jTable_TBCoSan;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField_HoTen;
     private javax.swing.JTextField jTextField_HoTenSVTra;
     private javax.swing.JTextField jTextField_Lop;
@@ -3225,6 +3453,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_MaSV;
     private javax.swing.JTextField jTextField_MaSVMuon;
     private javax.swing.JTextField jTextField_MaSVTra;
+    private javax.swing.JTextField jTextField_NgayGioNhapKho;
     private javax.swing.JTextField jTextField_SDT;
     private javax.swing.JTextField jTextField_SDTTra;
     private javax.swing.JTextField jTextField_TimKiem;
