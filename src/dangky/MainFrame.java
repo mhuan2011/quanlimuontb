@@ -101,7 +101,6 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel_dangxuat = new javax.swing.JPanel();
         jLabel_dangxuat = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel_userID = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
@@ -331,7 +330,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dangky/newpackage/icons8_save_24px.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dangky/images/icons8_save_24px.png"))); // NOI18N
         jButton1.setText("LƯU");
         jButton1.setBackground(new java.awt.Color(51, 204, 0));
         jButton1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -342,7 +341,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dangky/newpackage/icons8_go_back_26px.png"))); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dangky/images/icons8_go_back_26px.png"))); // NOI18N
         jButton4.setText("QUAY LẠI");
         jButton4.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(102, 102, 102));
@@ -413,9 +412,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jPane_svdk2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jDialog_luudangkyLayout = new javax.swing.GroupLayout(jDialog_luudangky.getContentPane());
@@ -502,20 +501,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel5.setBackground(new java.awt.Color(42, 42, 112));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 149, Short.MAX_VALUE)
-        );
-
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel_userID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dangky/newpackage/icons8_user_40px.png"))); // NOI18N
+        jLabel_userID.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dangky/images/icons8_user_40px.png"))); // NOI18N
         jLabel_userID.setText("Nguyen Minh Huan");
         jLabel_userID.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel_userID.setForeground(new java.awt.Color(0, 0, 102));
@@ -525,16 +513,16 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel_userID, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel_userID, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel_userID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel_userID, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -543,9 +531,7 @@ public class MainFrame extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -553,9 +539,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(517, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 43, 250, 600));
@@ -961,7 +945,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
             int result2 = now.compareTo(date_tgmuon1);
             if(result2 > 0) {
-                JOptionPane.showMessageDialog(rootPane, "Thời gian phải lớn hơn tg hiện tại");
+                JOptionPane.showMessageDialog(rootPane, "Thời gian phải lớn hơn thời gian hiện tại");
             }
             else {
                 docDanhSachTB(tgmuon, tgtra);
@@ -1194,7 +1178,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPane_svdk1;
     private javax.swing.JPanel jPane_svdk2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel3;
