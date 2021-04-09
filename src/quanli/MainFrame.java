@@ -843,6 +843,11 @@ public class MainFrame extends javax.swing.JFrame {
         jButton16.setText("ĐĂNG XUẤT");
         jButton16.setBackground(new java.awt.Color(153, 153, 153));
         jButton16.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
 
         jPanel9.setBackground(new java.awt.Color(220, 220, 220));
 
@@ -3358,6 +3363,12 @@ public class MainFrame extends javax.swing.JFrame {
     private void jLabel62MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel62MouseClicked
         // Thống kê:
     }//GEN-LAST:event_jLabel62MouseClicked
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+        new LoginFrameQL().setVisible(true);
+    }//GEN-LAST:event_jButton16ActionPerformed
     /*
 
     /**

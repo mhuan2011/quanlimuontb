@@ -6,6 +6,7 @@
 package DangNhap;
 
 import dangky.LoginFrame;
+import quanli.LoginFrameQL;
 
 /**
  *
@@ -20,6 +21,7 @@ public class DangNhapChinh extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -168,6 +170,8 @@ public class DangNhapChinh extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
+        this.setVisible(false);
+        new LoginFrameQL().setVisible(true);
         
     }//GEN-LAST:event_jLabel2MouseClicked
 
