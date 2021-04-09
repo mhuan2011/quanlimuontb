@@ -2015,7 +2015,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         try {
 
-            PreparedStatement ps = ketNoi.prepareCall(sql);
+            PreparedStatement ps = ketNoi.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
