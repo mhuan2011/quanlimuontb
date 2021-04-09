@@ -16,12 +16,13 @@ import javax.swing.JOptionPane;
 public class LoginFrame extends javax.swing.JFrame {
      
     /**
-     * Creates new form LoginFrame
+     * Login phan dang nhan nhan vien
      */
     
     java.sql.Connection ketNoi = (java.sql.Connection) KetNoi.ConnectSQL();
     public LoginFrame() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -177,6 +178,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private void jButton_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_LoginActionPerformed
         // Nhan vien dang nhap
         String id = jTextField_MaNhanVien.getText();
+        id = id.toUpperCase();
         String pass = jPasswordField_MatKhau.getText();
         boolean checkLogin = true;
         if("".equals(id)) {
@@ -188,6 +190,7 @@ public class LoginFrame extends javax.swing.JFrame {
             checkLogin = false;
         }
         
+        
         if(checkLogin){
             String sql = "select * from nhanvien where manv = ?";
             try {
@@ -198,12 +201,13 @@ public class LoginFrame extends javax.swing.JFrame {
                 if(rs.next()){
                     String matk = rs.getString("MATK");
                     String sql2 = "select MATKHAU from taikhoan where MATK = ?";
-                    ps.setString(1, matk);
-                    ResultSet rs1 = ps.executeQuery();
-                    
+                    PreparedStatement ps2 = ketNoi.prepareStatement(sql2);
+                    ps2.setString(1, matk);
+                    ResultSet rs1 = ps2.executeQuery();
+                    String matkhau;
                     if(rs1.next()){
-                        String matkhau = rs1.getString("MATKHAU");
-                        if(pass==matkhau){
+                        matkhau = rs1.getString("MATKHAU");
+                        if(matkhau.equals(pass)){
                             new MainFrame().setVisible(true);
                         }
                         else{
@@ -211,6 +215,11 @@ public class LoginFrame extends javax.swing.JFrame {
                             return;
                         }
                     }
+                    else {
+                        return;
+                    }
+                    
+                    
                 }
                 else{
                     JOptionPane.showMessageDialog(rootPane, "Sai mã nhân viên hoặc mật khẩu");
