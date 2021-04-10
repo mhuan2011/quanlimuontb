@@ -552,6 +552,9 @@
         </Property>
         <Property name="modal" type="boolean" value="true"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_LayoutCodePost" type="java.lang.String" value="setDefaultCloseOperation(jDialog_ChucNang.DO_NOTHING_ON_CLOSE);"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

@@ -682,6 +682,8 @@ public class MainFrame extends javax.swing.JFrame {
             .addComponent(jPanel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        setDefaultCloseOperation(jDialog_ChucNang.DO_NOTHING_ON_CLOSE);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -1997,7 +1999,7 @@ public class MainFrame extends javax.swing.JFrame {
                             thu = "Thứ " + Integer.toString(dayOfWeek);
                         }
                         int dayOfMonth = cal.get(Calendar.DAY_OF_MONTH);
-                        int month = cal.get(Calendar.MONTH);
+                        int month = cal.get(Calendar.MONTH)+1;
                         int year = cal.get(Calendar.YEAR);
 
                         jLabel_time.setText(dayOfMonth + "/" + month + "/" + year + " " + hour + ":" + minute + ":" + second);
@@ -2251,7 +2253,7 @@ public class MainFrame extends javax.swing.JFrame {
         dstbtra.clear();
         DefaultTableModel dtm = (DefaultTableModel) jTable_DSThBiTra.getModel();
         dtm.setNumRows(0);
-        String sql = "select * from thietbi where MATB in (select MATB from chitietmuon where MAMUON = ?)";
+        String sql = "select * from thietbi where MATB in (select MATB from chitietmuon where MAMUON = ? and TRANGTHAIMUONCT = N'Đang mượn')";
         try {
             PreparedStatement ps = ketNoi.prepareStatement(sql);
             ps.setString(1, mamuon);
@@ -2269,10 +2271,11 @@ public class MainFrame extends javax.swing.JFrame {
                 tb.tenTB = rs.getString("TENTB");
                 vt.add(tb.tenTB); //3
                 vt.add(""); //4
-
+                tb.check = false;
+                vt.add(tb.check);
                 System.out.println("test...");
                 stt++;
-
+                
                 dstbtra.add(tb);
                 dtm.addRow(vt);
 
@@ -2555,13 +2558,14 @@ public class MainFrame extends javax.swing.JFrame {
             boolean check = (boolean) jTable_DSThBiTra.getValueAt(i, 4);
             
             ThietBi tb;
+            
             if (check == true) {
                 String tinhtrang = (String) jTable_DSThBiTra.getValueAt(i, 3);
                 tb = new ThietBi();
                 tb = dstbtra.get(i);
                 tb.moTa = tinhtrang;
                 TBtra.add(tb);
-                
+                System.out.println("matb" + "");
             }
         }
         
@@ -2978,7 +2982,7 @@ public class MainFrame extends javax.swing.JFrame {
                     vt.add(dstbmuon.get(i).moTa);
                     TBmuon.add(dstbmuon.get(i));
                     System.out.println("MTB: " + dstbmuon.get(i).matb);
-
+                    vt.add(false);
                     dtm.addRow(vt);
                     dem++;
                     SVDaDK = false;
@@ -3259,6 +3263,7 @@ public class MainFrame extends javax.swing.JFrame {
         //1. Sinh viên trả
         //Xác nhận điều kiện
         String masv = jTextField_MaSVTra.getText();
+        masv = masv.toUpperCase();
         String hoten = jTextField_HoTenSVTra.getText();
         String lop = jTextField_LopSVTra.getText();
         String sdt = jTextField_SDTTra.getText();
