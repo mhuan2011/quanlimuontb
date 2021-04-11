@@ -67,9 +67,10 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel_themtb_btn.setBackground(new Color(153, 153, 153));
         datePicker_NgayTra.setLocale(Locale.forLanguageTag("VI"));
         datePicker_NgayMuon.setLocale(Locale.forLanguageTag("VI"));
-        jTextField_NgayGioNhapKho.setEditable(false);
+        themTB_ngayNhapKho_txf.setEditable(false);
         clock();
         docDanhSach();
+        docLoaiTB();
     }
 
     /**
@@ -235,24 +236,24 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel53 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel54 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        themTB_maTB_txf = new javax.swing.JTextField();
+        themTB_loaiTB_cb = new javax.swing.JComboBox<>();
         jLabel55 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        themTB_tenTB_txf = new javax.swing.JTextField();
         jLabel56 = new javax.swing.JLabel();
-        jTextField_NgayGioNhapKho = new javax.swing.JTextField();
+        themTB_ngayNhapKho_txf = new javax.swing.JTextField();
         jLabel57 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jLabel58 = new javax.swing.JLabel();
-        jLabel52 = new javax.swing.JLabel();
+        maLoaiTB_label = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        themTB_moTa_txa = new javax.swing.JTextArea();
         jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        themTB_tinhTrang_cb = new javax.swing.JComboBox<>();
 
         jDialog_ChonDSDangKy.setMinimumSize(new java.awt.Dimension(465, 276));
         jDialog_ChonDSDangKy.setModal(true);
@@ -834,7 +835,7 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel_trangchu_btn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(10, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1010, 50));
@@ -1770,22 +1771,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel54.setText("Mã thiết bị (*):");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Loại thiết bị ---" }));
-        jComboBox1.setBorder(null);
+        themTB_loaiTB_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Loại thiết bị ---" }));
+        themTB_loaiTB_cb.setBorder(null);
+        themTB_loaiTB_cb.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                themTB_loaiTB_cbItemStateChanged(evt);
+            }
+        });
 
         jLabel55.setText("Loại thiết bị(*):");
 
-        jLabel56.setText("Ngày nhâp kho");
+        jLabel56.setText("Ngày nhập kho:");
 
         jLabel57.setText("Tên thiết bị (*):");
 
-        jLabel58.setText("Mã thiết bị:");
+        jLabel58.setText("Tình trạng:");
 
-        jLabel52.setText("MIC-");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane7.setViewportView(jTextArea1);
+        themTB_moTa_txa.setColumns(20);
+        themTB_moTa_txa.setRows(5);
+        jScrollPane7.setViewportView(themTB_moTa_txa);
 
         jLabel59.setText("Mô tả:");
 
@@ -1800,6 +1804,11 @@ public class MainFrame extends javax.swing.JFrame {
         jButton1.setText("THÊM");
         jButton1.setBackground(new java.awt.Color(0, 102, 51));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("HỦY");
         jButton2.setBackground(new java.awt.Color(204, 0, 51));
@@ -1813,6 +1822,13 @@ public class MainFrame extends javax.swing.JFrame {
         jButton3.setText("ĐẶT LẠI");
         jButton3.setBackground(new java.awt.Color(0, 0, 102));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        themTB_tinhTrang_cb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Có sẵn", "Đang mượn", "Hư hỏng", "Bảo trì" }));
 
         javax.swing.GroupLayout jPanel_themtbLayout = new javax.swing.GroupLayout(jPanel_themtb);
         jPanel_themtb.setLayout(jPanel_themtbLayout);
@@ -1841,20 +1857,20 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel_themtbLayout.createSequentialGroup()
                                 .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField2)
+                                    .addComponent(themTB_loaiTB_cb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(themTB_tenTB_txf)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_themtbLayout.createSequentialGroup()
-                                        .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                                        .addComponent(maLoaiTB_label, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(themTB_maTB_txf, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel56, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel58))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField_NgayGioNhapKho, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
-                                    .addComponent(jTextField4)))
+                                    .addComponent(themTB_ngayNhapKho_txf, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                                    .addComponent(themTB_tinhTrang_cb, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jScrollPane7)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel_themtbLayout.createSequentialGroup()
                         .addGap(69, 69, 69)
@@ -1880,20 +1896,20 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel53))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(themTB_loaiTB_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel55)
-                    .addComponent(jTextField_NgayGioNhapKho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(themTB_ngayNhapKho_txf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel56))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel54)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(themTB_maTB_txf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel58)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel52))
+                    .addComponent(maLoaiTB_label)
+                    .addComponent(themTB_tinhTrang_cb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(themTB_tenTB_txf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel57))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel_themtbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2003,7 +2019,7 @@ public class MainFrame extends javax.swing.JFrame {
                         int year = cal.get(Calendar.YEAR);
 
                         jLabel_time.setText(dayOfMonth + "/" + month + "/" + year + " " + hour + ":" + minute + ":" + second);
-                        jTextField_NgayGioNhapKho.setText(dayOfMonth + "-" + month + "-" + year + " " + hour + ":" + minute + ":" + second);
+                        themTB_ngayNhapKho_txf.setText(dayOfMonth + "-" + month + "-" + year + " " + hour + ":" + minute + ":" + second);
                         sleep(1000);
                     }
                 } catch (Exception e) {
@@ -2014,6 +2030,79 @@ public class MainFrame extends javax.swing.JFrame {
         clock.start();
     }
 
+    //load danh sach loai tb
+    private void docLoaiTB() {
+        themTB_loaiTB_cb.removeAllItems();
+        String sql = "SELECT TENLOAI FROM loaitb";
+        try {
+            PreparedStatement pr_st = ketNoi.prepareStatement(sql);
+            ResultSet result = pr_st.executeQuery();
+            while (result.next()) {
+                themTB_loaiTB_cb.addItem(result.getString("TENLOAI"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    // Input vao ten loai TB va output ra ma loai TB
+    private String timMaLoaiTB(String tenLoaiTB) {
+        String sql = "SELECT * FROM loaitb";
+        try {
+            PreparedStatement pr_st = ketNoi.prepareStatement(sql);
+            ResultSet result = pr_st.executeQuery();
+            while (result.next()) {
+                if (tenLoaiTB.equalsIgnoreCase(result.getString("TENLOAI"))) {
+                    return result.getString("MALOAI");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return "LỖI";
+    }
+    //them thiet bi vao csdl
+    private void themThietBi(String maTB, String tenTB, String maLoai, String ngayNhapKho, String moTa, String tinhTrang) {
+        String sql = "INSERT INTO thietbi VALUES('"+maTB+"', N'"+tenTB+"', '"+maLoai+"', '"+ngayNhapKho+"', N'"+moTa+"', N'"+tinhTrang+"')";
+        try {
+            PreparedStatement pr_st = ketNoi.prepareStatement(sql);
+            pr_st.executeUpdate();
+            JOptionPane.showMessageDialog(rootPane, "Thêm thiết bị thành công");
+        } catch (SQLException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    //Kiem tra xem ma thiet bi co bi trung hay k0
+    private boolean tonTaiMaTB(String maTB) {
+        String sql = "SELECT MATB FROM thietbi";
+        try {
+            PreparedStatement pr_st = ketNoi.prepareStatement(sql);
+            ResultSet result = pr_st.executeQuery();
+            while (result.next()) {
+                if (maTB.equalsIgnoreCase(result.getString("MATB"))) {
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    //Kiem tra xem ma thiet bi co bi trung hay k0
+    private boolean tonTaiTenTB(String tenTB) {
+        String sql = "SELECT TENTB FROM thietbi";
+        try {
+            PreparedStatement pr_st = ketNoi.prepareStatement(sql);
+            ResultSet result = pr_st.executeQuery();
+            while (result.next()) {
+                if (tenTB.equalsIgnoreCase(result.getString("TENTB"))) {
+                    return true;
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     //load danh sach tb
     private void docDanhSach() {
         DefaultTableModel dtm = (DefaultTableModel) jTable_TBCoSan.getModel();
@@ -3357,6 +3446,15 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        jPanel_trangchu.setVisible(true);
+        jPanel_muontb.setVisible(false);
+        jPanel_tratb.setVisible(false);
+        jPanel_themtb.setVisible(false);
+
+        jPanel_trangchu_btn.setBackground(Color.white);
+        jPanel_muontb_btn.setBackground(new Color(153, 153, 153));
+        jPanel_tratb_btn.setBackground(new Color(153, 153, 153));
+        jPanel_themtb_btn.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jLabel_ChucNangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel_ChucNangMouseClicked
@@ -3374,6 +3472,40 @@ public class MainFrame extends javax.swing.JFrame {
         this.setVisible(false);
         new LoginFrameQL().setVisible(true);
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void themTB_loaiTB_cbItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_themTB_loaiTB_cbItemStateChanged
+        String tenLoaiTB = String.valueOf(themTB_loaiTB_cb.getSelectedItem());
+        String maLoaiTB = timMaLoaiTB(tenLoaiTB);
+        maLoaiTB_label.setText(maLoaiTB + "-");
+    }//GEN-LAST:event_themTB_loaiTB_cbItemStateChanged
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        themTB_maTB_txf.setText("");
+        themTB_tenTB_txf.setText("");
+        themTB_moTa_txa.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String maTB = maLoaiTB_label.getText() + themTB_maTB_txf.getText();
+        String tenTB = themTB_tenTB_txf.getText();
+        String maLoaiTB = timMaLoaiTB(String.valueOf(themTB_loaiTB_cb.getSelectedItem()));
+        String ngayNhapKho = themTB_ngayNhapKho_txf.getText();
+        String moTa = themTB_moTa_txa.getText();
+        String tinhTrang = String.valueOf(themTB_tinhTrang_cb.getSelectedItem());
+        if (tenTB.equalsIgnoreCase("") || tenTB.matches("\\s++")) {
+            JOptionPane.showMessageDialog(rootPane, "Nhập tên thiết bị");
+        } else if (themTB_maTB_txf.getText().equalsIgnoreCase("") || themTB_maTB_txf.getText().matches("\\s++")) {
+            JOptionPane.showMessageDialog(rootPane, "Nhập mã thiết bị");
+        } else {
+            if (tonTaiMaTB(maTB)) {
+                JOptionPane.showMessageDialog(rootPane, "Mã thiết bị đã tồn tại");
+            } else if (tonTaiTenTB(tenTB)) {
+                JOptionPane.showMessageDialog(rootPane, "Tên thiết bị đã tồn tại");
+            } else {
+                themThietBi(maTB, tenTB, maLoaiTB, ngayNhapKho, moTa, tinhTrang);
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
     /*
 
     /**
@@ -3438,7 +3570,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton_XacNhanTra;
     private javax.swing.JButton jButton_Xoa;
     private javax.swing.JButton jButton_gioHT;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox_SapXep;
     private javax.swing.JComboBox<String> jComboBox_TrangThai;
     private javax.swing.JDialog jDialog_ChonDSDangKy;
@@ -3492,7 +3623,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
@@ -3567,10 +3697,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTable_DSThBiTra;
     private javax.swing.JTable jTable_DanhSachMuon;
     private javax.swing.JTable jTable_TBCoSan;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField_HoTen;
     private javax.swing.JTextField jTextField_HoTenSVTra;
     private javax.swing.JTextField jTextField_Lop;
@@ -3579,10 +3705,16 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField_MaSV;
     private javax.swing.JTextField jTextField_MaSVMuon;
     private javax.swing.JTextField jTextField_MaSVTra;
-    private javax.swing.JTextField jTextField_NgayGioNhapKho;
     private javax.swing.JTextField jTextField_SDT;
     private javax.swing.JTextField jTextField_SDTTra;
     private javax.swing.JTextField jTextField_TimKiem;
+    private javax.swing.JLabel maLoaiTB_label;
+    private javax.swing.JComboBox<String> themTB_loaiTB_cb;
+    private javax.swing.JTextField themTB_maTB_txf;
+    private javax.swing.JTextArea themTB_moTa_txa;
+    private javax.swing.JTextField themTB_ngayNhapKho_txf;
+    private javax.swing.JTextField themTB_tenTB_txf;
+    private javax.swing.JComboBox<String> themTB_tinhTrang_cb;
     private com.github.lgooddatepicker.components.TimePicker timePicker_GioMuon;
     private com.github.lgooddatepicker.components.TimePicker timePicker_GioTra;
     // End of variables declaration//GEN-END:variables

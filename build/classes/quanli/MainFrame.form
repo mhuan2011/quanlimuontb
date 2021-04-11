@@ -825,7 +825,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="10" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2684,12 +2684,12 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jComboBox1" max="32767" attributes="0"/>
-                                                  <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="themTB_loaiTB_cb" max="32767" attributes="0"/>
+                                                  <Component id="themTB_tenTB_txf" alignment="0" max="32767" attributes="0"/>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <Component id="jLabel52" pref="40" max="32767" attributes="0"/>
+                                                      <Component id="maLoaiTB_label" pref="40" max="32767" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
-                                                      <Component id="jTextField1" min="-2" pref="162" max="-2" attributes="0"/>
+                                                      <Component id="themTB_maTB_txf" min="-2" pref="162" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <EmptySpace max="32767" attributes="0"/>
@@ -2699,8 +2699,8 @@
                                               </Group>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="jTextField_NgayGioNhapKho" pref="149" max="32767" attributes="0"/>
-                                                  <Component id="jTextField4" max="32767" attributes="0"/>
+                                                  <Component id="themTB_ngayNhapKho_txf" pref="149" max="32767" attributes="0"/>
+                                                  <Component id="themTB_tinhTrang_cb" max="32767" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Component id="jScrollPane7" max="32767" attributes="0"/>
@@ -2738,22 +2738,22 @@
                               </Group>
                               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="themTB_loaiTB_cb" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel55" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField_NgayGioNhapKho" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="themTB_ngayNhapKho_txf" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel56" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="themTB_maTB_txf" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel52" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="maLoaiTB_label" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="themTB_tinhTrang_cb" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="themTB_tenTB_txf" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -2816,9 +2816,9 @@
                         <Property name="text" type="java.lang.String" value="M&#xe3; thi&#x1ebf;t b&#x1ecb; (*):"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField1">
+                    <Component class="javax.swing.JTextField" name="themTB_maTB_txf">
                     </Component>
-                    <Component class="javax.swing.JComboBox" name="jComboBox1">
+                    <Component class="javax.swing.JComboBox" name="themTB_loaiTB_cb">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                           <StringArray count="1">
@@ -2829,6 +2829,9 @@
                           <Border info="null"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="themTB_loaiTB_cbItemStateChanged"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
@@ -2838,31 +2841,26 @@
                         <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i thi&#x1ebf;t b&#x1ecb;(*):"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField2">
+                    <Component class="javax.swing.JTextField" name="themTB_tenTB_txf">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel56">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Ng&#xe0;y nh&#xe2;p kho"/>
+                        <Property name="text" type="java.lang.String" value="Ng&#xe0;y nh&#x1ead;p kho:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField_NgayGioNhapKho">
+                    <Component class="javax.swing.JTextField" name="themTB_ngayNhapKho_txf">
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel57">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="T&#xea;n thi&#x1ebf;t b&#x1ecb; (*):"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="jTextField4">
-                    </Component>
                     <Component class="javax.swing.JLabel" name="jLabel58">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="M&#xe3; thi&#x1ebf;t b&#x1ecb;:"/>
+                        <Property name="text" type="java.lang.String" value="T&#xec;nh tr&#x1ea1;ng:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel52">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="MIC-"/>
-                      </Properties>
+                    <Component class="javax.swing.JLabel" name="maLoaiTB_label">
                     </Component>
                     <Container class="javax.swing.JScrollPane" name="jScrollPane7">
                       <AuxValues>
@@ -2871,7 +2869,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTextArea" name="jTextArea1">
+                        <Component class="javax.swing.JTextArea" name="themTB_moTa_txa">
                           <Properties>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="rows" type="int" value="5"/>
@@ -2916,6 +2914,9 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton2">
                       <Properties>
@@ -2941,6 +2942,24 @@
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                      </Events>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="themTB_tinhTrang_cb">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="4">
+                            <StringItem index="0" value="C&#xf3; s&#x1eb5;n"/>
+                            <StringItem index="1" value="&#x110;ang m&#x1b0;&#x1ee3;n"/>
+                            <StringItem index="2" value="H&#x1b0; h&#x1ecf;ng"/>
+                            <StringItem index="3" value="B&#x1ea3;o tr&#xec;"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>
